@@ -1,0 +1,10 @@
+{
+  "createNewAccount": "انشاء حساب جديد",
+  "fullName": "الأسم بالكامل",
+  "email": "البريد الالكتروني",
+  "password": "كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "login": "تسجيل الدخول",
+  "signUp": "انشاء حساب",
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟"
+}

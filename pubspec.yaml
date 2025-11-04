@@ -29,6 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_svg: ^2.2.1
+  flutter_localizations:
+    sdk: flutter
   flutter:
     sdk: flutter
 
@@ -61,6 +63,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -74,10 +77,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/TajawalBold.ttf
+          weight: 700
+        - asset: assets/fonts/TajawalRegular.ttf
+          weight: 400
+        - asset: assets/fonts/TajawalMedium.ttf
+          weight: 500
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
@@ -88,3 +97,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true

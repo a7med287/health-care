@@ -1,0 +1,10 @@
+{
+  "createNewAccount": "Create New Account",
+  "fullName": "Full Name",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "login": "Login",
+  "signUp": "Sign Up",
+  "alreadyHaveAccount": "Already have an account?"
+}

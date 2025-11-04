@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/utils/app_images.dart';
 
-
 class AnimatedLogo extends StatefulWidget {
   const AnimatedLogo({super.key});
 
