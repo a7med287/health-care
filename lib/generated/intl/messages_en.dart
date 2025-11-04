@@ -25,14 +25,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
+    "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "createNewAccount": MessageLookupByLibrary.simpleMessage(
       "Create New Account",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "forgotPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email to receive your verification code.",
+    ),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "rememberPassword": MessageLookupByLibrary.simpleMessage(
+      "Remember your password?",
+    ),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
   };
 }

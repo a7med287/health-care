@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟",
     ),
+    "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
@@ -33,6 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullName": MessageLookupByLibrary.simpleMessage("الأسم بالكامل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "rememberPassword": MessageLookupByLibrary.simpleMessage(
+      "هل تذكرت كلمة المرور؟",
+    ),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("إرسال رابط التغيير"),
     "signUp": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
   };
 }

@@ -108,6 +108,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Reset Link`
+  String get sendResetLink {
+    return Intl.message(
+      'Send Reset Link',
+      name: 'sendResetLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember your password?`
+  String get rememberPassword {
+    return Intl.message(
+      'Remember your password?',
+      name: 'rememberPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email to receive your verification code.`
+  String get forgotPasswordHint {
+    return Intl.message(
+      'Please enter your email to receive your verification code.',
+      name: 'forgotPasswordHint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

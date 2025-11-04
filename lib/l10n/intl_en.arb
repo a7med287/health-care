@@ -6,5 +6,9 @@
   "confirmPassword": "Confirm Password",
   "login": "Login",
   "signUp": "Sign Up",
-  "alreadyHaveAccount": "Already have an account?"
+  "alreadyHaveAccount": "Already have an account?",
+  "changePassword": "Change Password",
+  "sendResetLink": "Send Reset Link",
+  "rememberPassword": "Remember your password?",
+  "forgotPasswordHint": "Please enter your email to receive your verification code."
 }
