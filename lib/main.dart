@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:health_care/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:health_care/features/auth/presentation/views/confirm_email_view.dart';
 import 'package:health_care/features/auth/presentation/views/create_new_password_view.dart';
 import 'package:health_care/features/auth/presentation/views/login_view.dart';
@@ -31,7 +32,7 @@ class HealthCare extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
 
         // switch language ar => arabic OR en => english
-        locale: Locale("en"),
+        locale: Locale("ar"),
 
         theme: ThemeData(
           fontFamily: "Tajawal",
@@ -41,6 +42,6 @@ class HealthCare extends StatelessWidget {
         ),
 
 
-        home: const LoginView());
+        home: const SplashView());
   }
 }

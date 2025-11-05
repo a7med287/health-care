@@ -117,11 +117,16 @@ class RegisterViewBody extends StatelessWidget {
                             S.of(context).alreadyHaveAccount,
                             style: Styles.textStyleMedium16,
                           ),
-                          Text(
-                            S.of(context).login,
-                            style: Styles.textStyleMedium16.copyWith(
-                              color: AppColors.primaryColor,
-                              fontSize: 18,
+                          InkWell(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              S.of(context).login,
+                              style: Styles.textStyleMedium16.copyWith(
+                                color: AppColors.primaryColor,
+                                fontSize: 18,
+                              ),
                             ),
                           ),
                         ],

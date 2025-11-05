@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/core/utils/styles.dart';
 import 'package:health_care/core/widgets/custom_button.dart';
+import 'package:health_care/features/auth/presentation/views/create_new_password_view.dart';
 import 'package:health_care/generated/l10n.dart';
 
 import '../../../../core/utils/app_images.dart';
@@ -110,7 +111,17 @@ class ConfirmEmailViewBody extends StatelessWidget {
                         const SizedBox(height: 20),
 
                         // Send button
-                        CustomButton(text: S.of(context).send),
+                        CustomButton(
+                          text: S.of(context).confirm,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CreateNewPasswordView(),
+                              ),
+                            );
+                          },
+                        ),
 
                         const SizedBox(height: 12),
 

@@ -10,7 +10,7 @@
   "changePassword": "Change Password",
   "sendResetLink": "Send Reset Link",
   "rememberPassword": "Remember your password?",
-  "forgotPasswordHint": "Please enter your email to receive your verification code."
+  "forgotPasswordHint": "Please enter your email to receive your verification code.",
   "activationcode" : "Activation Code",
   "enterActivationCode" : "Please enter the activation code sent to your email.",
   "send" : "Send",
@@ -18,6 +18,9 @@
   "createNewPassword" : "Create New Password",
   "newPassword" : "New Password",
   "save" : "Save",
-  "Youdonothaveanaccount" : "You do not have an account",
-  "registration" : "registration"
+  "confirm": "Confirm",
+  "Youdonothaveanaccount" : "You do not have an account ?",
+  "registration" : "registration",
+  "forgotPassword": "Forgot Password ?",
+  "thisIsRequired": "this is required"
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
 import '../utils/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
@@ -39,7 +40,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       focusNode: focusNode,
       validator: (value) {
         if (value!.isEmpty) {
-          return "this is required";
+          return S.of(context).thisIsRequired;
         }
         return null;
       },

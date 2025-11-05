@@ -23,13 +23,14 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Youdonothaveanaccount": MessageLookupByLibrary.simpleMessage(
-      "You do not have an account",
+      "You do not have an account ?",
     ),
     "activationcode": MessageLookupByLibrary.simpleMessage("Activation Code"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "createNewAccount": MessageLookupByLibrary.simpleMessage(
       "Create New Account",
@@ -38,10 +39,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create New Password",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
-    "forgotPasswordHint": MessageLookupByLibrary.simpleMessage(
-      "Please enter your email to receive your verification code.",
     "enterActivationCode": MessageLookupByLibrary.simpleMessage(
       "Please enter the activation code sent to your email.",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
+    "forgotPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email to receive your verification code.",
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -51,10 +54,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "Remember your password?",
     ),
-    "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "thisIsRequired": MessageLookupByLibrary.simpleMessage("this is required"),
   };
 }

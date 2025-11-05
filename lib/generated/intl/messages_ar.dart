@@ -23,13 +23,14 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Youdonothaveanaccount": MessageLookupByLibrary.simpleMessage(
-      "ليس لديك حساب",
+      "ليس لديك حساب ؟",
     ),
     "activationcode": MessageLookupByLibrary.simpleMessage("كود التفعيل"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟",
     ),
     "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+    "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
@@ -41,6 +42,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterActivationCode": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني.",
     ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage(
+      "هل نسيت كلمة المرور ؟",
+    ),
+    "forgotPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل بريدك الإلكتروني لإرسال كود التفعيل الخاص بك",
+    ),
     "fullName": MessageLookupByLibrary.simpleMessage("الأسم بالكامل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
@@ -49,10 +56,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "هل تذكرت كلمة المرور؟",
     ),
-    "sendResetLink": MessageLookupByLibrary.simpleMessage("إرسال رابط التغيير"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("إرسال رابط التغيير"),
     "signUp": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
+    "thisIsRequired": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
   };
 }

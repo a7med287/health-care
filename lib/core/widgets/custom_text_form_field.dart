@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 
+import '../../generated/l10n.dart';
+
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
@@ -44,7 +46,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       focusNode: focusNode,
       validator: (value) {
         if (value!.isEmpty) {
-          return "this is required";
+          return S.of(context).thisIsRequired;
         }
         return null;
       },

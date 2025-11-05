@@ -114,11 +114,6 @@ class S {
     return Intl.message(
       'Change Password',
       name: 'changePassword',
-  /// `Activation Code`
-  String get activationcode {
-    return Intl.message(
-      'Activation Code',
-      name: 'activationcode',
       desc: '',
       args: [],
     );
@@ -129,11 +124,6 @@ class S {
     return Intl.message(
       'Send Reset Link',
       name: 'sendResetLink',
-  /// `Please enter the activation code sent to your email.`
-  String get enterActivationCode {
-    return Intl.message(
-      'Please enter the activation code sent to your email.',
-      name: 'enterActivationCode',
       desc: '',
       args: [],
     );
@@ -144,6 +134,41 @@ class S {
     return Intl.message(
       'Remember your password?',
       name: 'rememberPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email to receive your verification code.`
+  String get forgotPasswordHint {
+    return Intl.message(
+      'Please enter your email to receive your verification code.',
+      name: 'forgotPasswordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activation Code`
+  String get activationcode {
+    return Intl.message(
+      'Activation Code',
+      name: 'activationcode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the activation code sent to your email.`
+  String get enterActivationCode {
+    return Intl.message(
+      'Please enter the activation code sent to your email.',
+      name: 'enterActivationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Send`
   String get send {
     return Intl.message('Send', name: 'send', desc: '', args: []);
@@ -164,11 +189,6 @@ class S {
     );
   }
 
-  /// `Please enter your email to receive your verification code.`
-  String get forgotPasswordHint {
-    return Intl.message(
-      'Please enter your email to receive your verification code.',
-      name: 'forgotPasswordHint',
   /// `New Password`
   String get newPassword {
     return Intl.message(
@@ -184,10 +204,15 @@ class S {
     return Intl.message('Save', name: 'save', desc: '', args: []);
   }
 
-  /// `You do not have an account`
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `You do not have an account ?`
   String get Youdonothaveanaccount {
     return Intl.message(
-      'You do not have an account',
+      'You do not have an account ?',
       name: 'Youdonothaveanaccount',
       desc: '',
       args: [],
@@ -199,6 +224,26 @@ class S {
     return Intl.message(
       'registration',
       name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password ?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password ?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `this is required`
+  String get thisIsRequired {
+    return Intl.message(
+      'this is required',
+      name: 'thisIsRequired',
       desc: '',
       args: [],
     );

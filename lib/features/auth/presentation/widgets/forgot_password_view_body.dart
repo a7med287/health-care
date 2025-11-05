@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:health_care/core/utils/app_images.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/styles.dart';
 import 'package:health_care/core/widgets/custom_button.dart';
-import 'package:health_care/core/widgets/password_text_filed.dart';
-import 'package:health_care/features/auth/presentation/views/login_view.dart';
+import 'package:health_care/core/widgets/custom_text_form_field.dart';
+import 'package:health_care/features/auth/presentation/views/confirm_email_view.dart';
 import 'package:health_care/generated/l10n.dart';
+import '../../../../core/utils/app_images.dart';
 
-class CreateNewPasswordBody extends StatelessWidget {
-  const CreateNewPasswordBody({super.key});
+class ForgotPasswordViewBody extends StatelessWidget {
+  const ForgotPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,34 +59,42 @@ class CreateNewPasswordBody extends StatelessWidget {
 
                   child: SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          S.of(context).createNewPassword,
-                          style: Styles.textStyleBold24,
+                          S.of(context).changePassword,
+                          style: Styles.textStyleBold24.copyWith(
+                            color: Colors.black87,
+                            fontSize: 20,
+                          ),
                         ),
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 10),
                         Text(
-                          S.of(context).newPassword,
-                          style: Styles.textStyleRegular16,
+                          S.of(context).forgotPasswordHint,
+                          textAlign: TextAlign.center,
+                          style: Styles.textStyleRegular16.copyWith(
+                            color: Colors.grey[600],
+                            fontSize: 14,
+                            height: 1.4,
+                          ),
                         ),
-                        const SizedBox(height: 8),
-                        const PasswordTextFormField(),
-                        const SizedBox(height: 16),
-                        Text(
-                          S.of(context).confirmPassword,
-                          style: Styles.textStyleRegular16,
+                        const SizedBox(height: 25),
+
+                        ///   الإيميل
+                        const CustomTextFormField(
+                          iconData: Icons.email_outlined,
+
+                          textInputType: TextInputType.emailAddress,
                         ),
-                        const SizedBox(height: 8),
-                        const PasswordTextFormField(),
-                        const SizedBox(height: 30),
+
+                        const SizedBox(height: 25),
+
                         CustomButton(
-                          text: S.of(context).save,
+                          text: S.of(context).sendResetLink,
                           onTap: () {
-                            Navigator.pushReplacement(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginView(),
+                                builder: (context) => ConfirmEmailView(),
                               ),
                             );
                           },
