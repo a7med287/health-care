@@ -7,111 +7,119 @@ import 'package:health_care/core/widgets/custom_text_form_field.dart';
 import 'package:health_care/generated/l10n.dart';
 import '../../../../core/utils/app_images.dart';
 
-class ChangePasswordViewBody extends StatelessWidget {
-  const ChangePasswordViewBody({super.key});
+class ForgotPasswordViewBody extends StatelessWidget {
+  const ForgotPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Stack(
-        children: [
-          // back image
-          SizedBox(
-            width: double.infinity,
-            child: Image.asset(Assets.backAuthImage, fit: BoxFit.fill),
-          ),
+    final size = MediaQuery.of(context).size;
 
-          // logo
-          Positioned(
-            left: 0,
-            right: 0,
-            top: MediaQuery.of(context).size.height * .09,
-            child: Column(
-              children: [
-                SvgPicture.asset(Assets.logo),
-                SvgPicture.asset(Assets.textLogo),
-              ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          /// 🔹 الخلفية الخضراء المنحنية + الصورة
+          ClipPath(
+            clipper: BottomCurveClipper(),
+            child: Container(
+              height: size.height * 0.6, // زوّدنا شوية عشان المنحنى يبقى أنعم
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.primaryColor.withOpacity(0.95),
+                    AppColors.primaryColor.withOpacity(0.85),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: Image.asset(
+                      Assets.backAuthImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          Assets.logo,
+                          height: 70,
+                        ),
+                        const SizedBox(height: 8),
+                        SvgPicture.asset(
+                          Assets.textLogo,
+                          height: 35,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
 
-          // Change password section
-          Positioned(
-            bottom: 0,
+          ///  الكارد البيضاء 
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * .55,
+              width: size.width * 0.88,
+              
+              margin: EdgeInsets.only(bottom: size.height * 0.20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 36),
-
-                      Text(
-                        S.of(context).changePassword, 
-                        style: Styles.textStyleBold24,
-                      ),
-
-                      const SizedBox(height: 12),
-
-                      
-                      Text(
-                        S.of(context).forgotPasswordHint,
-                        style: Styles.textStyleRegular16.copyWith(
-                          color: Colors.grey[600], 
-                          fontSize: 14,
-                        ),
-                      ),
-
-                      const SizedBox(height: 24),
-
-                      Text(
-                        S.of(context).email,
-                        style: Styles.textStyleRegular16,
-                      ),
-                      const SizedBox(height: 8),
-
-                      const CustomTextFormField(
-                        iconData: Icons.email_outlined,
-                        textInputType: TextInputType.emailAddress,
-                      ),
-
-                      const SizedBox(height: 36),
-
-                      CustomButton(text: S.of(context).sendResetLink),
-
-                      const SizedBox(height: 36),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            S.of(context).rememberPassword,
-                            style: Styles.textStyleMedium16,
-                          ),
-                          Text(
-                            S.of(context).login,
-                            style: Styles.textStyleMedium16.copyWith(
-                              color: AppColors.primaryColor,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(height: 36),
-                    ],
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.15),
+                    blurRadius: 12,
+                    offset: const Offset(0, 4),
                   ),
-                ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    S.of(context).changePassword,
+                    style: Styles.textStyleBold24.copyWith(
+                      color: Colors.black87,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    S.of(context).forgotPasswordHint,
+                    textAlign: TextAlign.center,
+                    style: Styles.textStyleRegular16.copyWith(
+                      color: Colors.grey[600],
+                      fontSize: 14,
+                      height: 1.4,
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+
+                  ///   الإيميل
+                  const CustomTextFormField(
+                    iconData: Icons.email_outlined,
+                    
+                    textInputType: TextInputType.emailAddress,
+                  ),
+
+                  const SizedBox(height: 25),
+
+                  
+                  CustomButton(
+                    text: S.of(context).sendResetLink,
+                    
+                  ),
+                ],
               ),
             ),
           ),
@@ -119,4 +127,22 @@ class ChangePasswordViewBody extends StatelessWidget {
       ),
     );
   }
+}
+
+class BottomCurveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(0, size.height - 100);
+    path.quadraticBezierTo(
+      size.width / 2, size.height,
+      size.width, size.height - 100,
+    );
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
