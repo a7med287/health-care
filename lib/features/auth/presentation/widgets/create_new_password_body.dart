@@ -15,12 +15,10 @@ class CreateNewPasswordBody extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       child: Stack(
         children: [
-
           SizedBox(
             width: double.infinity,
             child: Image.asset(Assets.backAuthImage, fit: BoxFit.fill),
           ),
-
 
           Positioned(
             left: 0,
@@ -34,12 +32,11 @@ class CreateNewPasswordBody extends StatelessWidget {
             ),
           ),
 
-
           Positioned(
-            bottom: MediaQuery.of(context).size.height * .25,
+            bottom: MediaQuery.of(context).size.height * .3,
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * .48,
+              height: MediaQuery.of(context).size.height * .40,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Container(
@@ -59,45 +56,32 @@ class CreateNewPasswordBody extends StatelessWidget {
                     ],
                   ),
 
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
-
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: constraints.maxHeight,
-                          ),
-                          child: IntrinsicHeight(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  S.of(context).createNewPassword,
-                                  style: Styles.textStyleBold24,
-                                ),
-                                const SizedBox(height: 24),
-                                Text(
-                                  S.of(context).newPassword,
-                                  style: Styles.textStyleRegular16,
-                                ),
-                                const SizedBox(height: 8),
-                                const PasswordTextFormField(),
-                                const SizedBox(height: 16),
-                                Text(
-                                  S.of(context).confirmPassword,
-                                  style: Styles.textStyleRegular16,
-                                ),
-                                const SizedBox(height: 8),
-                                const PasswordTextFormField(),
-                                const SizedBox(height: 30),
-                                CustomButton(text: S.of(context).save),
-                              ],
-                            ),
-                          ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).createNewPassword,
+                          style: Styles.textStyleBold24,
                         ),
-                      );
-                    },
+                        const SizedBox(height: 24),
+                        Text(
+                          S.of(context).newPassword,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 8),
+                        const PasswordTextFormField(),
+                        const SizedBox(height: 16),
+                        Text(
+                          S.of(context).confirmPassword,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 8),
+                        const PasswordTextFormField(),
+                        const SizedBox(height: 30),
+                        CustomButton(text: S.of(context).save),
+                      ],
+                    ),
                   ),
                 ),
               ),

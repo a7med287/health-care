@@ -30,18 +30,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "createNewAccount": MessageLookupByLibrary.simpleMessage(
       "Create New Account",
     ),
+    "createNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Create New Password",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "enterActivationCode": MessageLookupByLibrary.simpleMessage(
       "Please enter the activation code sent to your email.",
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
-    "createNewPassword": MessageLookupByLibrary.simpleMessage("Create New Password"),
-    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
-    "save": MessageLookupByLibrary.simpleMessage("Save"),
   };
 }

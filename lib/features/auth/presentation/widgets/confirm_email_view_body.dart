@@ -42,89 +42,94 @@ class ConfirmEmailViewBody extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * .4,
               child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      blurRadius: 6,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      S.of(context).activationcode,
-                      style: Styles.textStyleBold24
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 25,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black38,
+                        blurRadius: 6,
+                        offset: const Offset(0, 3),
                       ),
-                    const SizedBox(height: 8),
-                    Text(
-                      S.of(context).enterActivationCode,
-                      textAlign: TextAlign.center,
-                      style: Styles.textStyleRegular16
-                    ),
-                    const SizedBox(height: 20),
+                    ],
+                  ),
 
-                    //input code fields
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: List.generate(
-                        4,
-                        (index) => SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: TextField(
-                            controller: null,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            maxLength: 1,
-                            decoration: InputDecoration(
-                              counterText: "",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          S.of(context).activationcode,
+                          style: Styles.textStyleBold24,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          S.of(context).enterActivationCode,
+                          textAlign: TextAlign.center,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 20),
+
+                        //input code fields
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: List.generate(
+                            4,
+                            (index) => SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: TextField(
+                                controller: null,
+                                keyboardType: TextInputType.number,
+                                textAlign: TextAlign.center,
+                                maxLength: 1,
+                                decoration: InputDecoration(
+                                  counterText: "",
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                onChanged: (value) {
+                                  if (value.isNotEmpty && index < 3) {
+                                    FocusScope.of(context).nextFocus();
+                                  }
+                                },
                               ),
                             ),
-                            onChanged: (value) {
-                              if (value.isNotEmpty && index < 3) {
-                                FocusScope.of(context).nextFocus();
-                              }
-                            },
                           ),
                         ),
-                      ),
-                    ),
 
-                    const SizedBox(height: 16),
-                    //timer text
-                    const SizedBox(height: 20),
+                        const SizedBox(height: 16),
+                        //timer text
+                        const SizedBox(height: 20),
 
-                    // Send button
-                    CustomButton(text: S.of(context).send),
+                        // Send button
+                        CustomButton(text: S.of(context).send),
 
-                    const SizedBox(height: 12),
+                        const SizedBox(height: 12),
 
-                    // Resend text
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        S.of(context).resendCode,
-                        style: Styles.textStyleMedium16.copyWith(
+                        // Resend text
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            S.of(context).resendCode,
+                            style: Styles.textStyleMedium16.copyWith(
                               color: AppColors.primaryColor,
                               fontSize: 18,
                             ),
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
-            ),
             ),
           ),
         ],

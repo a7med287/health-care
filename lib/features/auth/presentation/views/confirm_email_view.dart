@@ -6,7 +6,9 @@ class ConfirmEmailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const ConfirmEmailViewBody());
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: const ConfirmEmailViewBody());
   }
 }
 

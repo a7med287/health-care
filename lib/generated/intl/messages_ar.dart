@@ -30,18 +30,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "تأكيد كلمة المرور",
     ),
     "createNewAccount": MessageLookupByLibrary.simpleMessage("انشاء حساب جديد"),
+    "createNewPassword": MessageLookupByLibrary.simpleMessage(
+      "إنشاء كلمة مرور جديدة",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "enterActivationCode": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني.",
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("الأسم بالكامل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "signUp": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
-    "createNewPassword": MessageLookupByLibrary.simpleMessage("إنشاء كلمة مرور جديدة"),
-    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
-    "save": MessageLookupByLibrary.simpleMessage("حفظ"),
   };
 }

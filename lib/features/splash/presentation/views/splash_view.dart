@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-import 'package:health_care/features/auth/presentation/views/confirm_email_view.dart';
+import 'package:health_care/features/auth/presentation/views/register_view.dart';
 import 'package:health_care/features/splash/presentation/views/widgets/animated_logo.dart';
 import '../../../../core/utils/app_images.dart';
 
@@ -18,10 +18,10 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(milliseconds: 3500), () {
+    Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ConfirmEmailView()),
+        MaterialPageRoute(builder: (context) => RegisterView()),
       );
     });
   }
