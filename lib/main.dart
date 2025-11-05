@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:health_care/features/auth/presentation/views/confirm_email_view.dart';
+import 'package:health_care/features/auth/presentation/views/create_new_password_view.dart';
+import 'package:health_care/features/auth/presentation/views/register_view.dart';
+import 'package:health_care/features/splash/presentation/views/splash_view.dart';
 
 import 'core/utils/app_colors.dart';
-import 'features/splash/presentation/views/splash_view.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -35,7 +38,7 @@ class HealthCare extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         ),
 
-        
+
         home: const SplashView());
   }
 }

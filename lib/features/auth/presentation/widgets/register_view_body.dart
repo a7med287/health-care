@@ -57,7 +57,6 @@ class RegisterViewBody extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 36),
-
                       Text(
                         S.of(context).createNewAccount,
                         style: Styles.textStyleBold24,

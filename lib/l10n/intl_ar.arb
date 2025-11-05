@@ -11,4 +11,12 @@
   "sendResetLink": "إرسال رابط التغيير",
   "rememberPassword": "هل تذكرت كلمة المرور؟",
   "forgotPasswordHint":"من فضلك أدخل بريدك الإلكتروني لإرسال كود التفعيل الخاص بك"
+  "activationcode" : "كود التفعيل",
+  "enterActivationCode" : "يرجى إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني.",
+  "send" : "إرسال",
+  "resendCode" : "إعادة إرسال الرمز",
+  "createNewPassword" : "إنشاء كلمة مرور جديدة",
+  "newPassword" : "كلمة مرور جديدة",
+  "save" : "حفظ"
+
 }

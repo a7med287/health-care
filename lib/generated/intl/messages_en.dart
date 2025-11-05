@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "activationcode": MessageLookupByLibrary.simpleMessage("Activation Code"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -30,17 +31,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "createNewAccount": MessageLookupByLibrary.simpleMessage(
       "Create New Account",
     ),
+    "createNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Create New Password",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "forgotPasswordHint": MessageLookupByLibrary.simpleMessage(
       "Please enter your email to receive your verification code.",
+    "enterActivationCode": MessageLookupByLibrary.simpleMessage(
+      "Please enter the activation code sent to your email.",
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "Remember your password?",
     ),
     "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
+    "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "send": MessageLookupByLibrary.simpleMessage("Send"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
   };
 }

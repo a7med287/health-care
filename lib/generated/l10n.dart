@@ -114,6 +114,11 @@ class S {
     return Intl.message(
       'Change Password',
       name: 'changePassword',
+  /// `Activation Code`
+  String get activationcode {
+    return Intl.message(
+      'Activation Code',
+      name: 'activationcode',
       desc: '',
       args: [],
     );
@@ -124,6 +129,11 @@ class S {
     return Intl.message(
       'Send Reset Link',
       name: 'sendResetLink',
+  /// `Please enter the activation code sent to your email.`
+  String get enterActivationCode {
+    return Intl.message(
+      'Please enter the activation code sent to your email.',
+      name: 'enterActivationCode',
       desc: '',
       args: [],
     );
@@ -134,6 +144,21 @@ class S {
     return Intl.message(
       'Remember your password?',
       name: 'rememberPassword',
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
+  }
+
+  /// `Resend Code`
+  String get resendCode {
+    return Intl.message('Resend Code', name: 'resendCode', desc: '', args: []);
+  }
+
+  /// `Create New Password`
+  String get createNewPassword {
+    return Intl.message(
+      'Create New Password',
+      name: 'createNewPassword',
       desc: '',
       args: [],
     );
@@ -144,9 +169,19 @@ class S {
     return Intl.message(
       'Please enter your email to receive your verification code.',
       name: 'forgotPasswordHint',
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
   }
 }
 
