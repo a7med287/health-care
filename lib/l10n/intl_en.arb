@@ -6,5 +6,9 @@
   "confirmPassword": "Confirm Password",
   "login": "Login",
   "signUp": "Sign Up",
-  "alreadyHaveAccount": "Already have an account?"
+  "alreadyHaveAccount": "Already have an account?",
+  "activationcode" : "Activation Code",
+  "enterActivationCode" : "Please enter the activation code sent to your email.",
+  "send" : "Send",
+  "resendCode" : "Resend Code"
 }

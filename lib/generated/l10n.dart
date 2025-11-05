@@ -108,6 +108,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Activation Code`
+  String get activationcode {
+    return Intl.message(
+      'Activation Code',
+      name: 'activationcode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the activation code sent to your email.`
+  String get enterActivationCode {
+    return Intl.message(
+      'Please enter the activation code sent to your email.',
+      name: 'enterActivationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
+  }
+
+  /// `Resend Code`
+  String get resendCode {
+    return Intl.message('Resend Code', name: 'resendCode', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

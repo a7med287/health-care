@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         height: 50,
         decoration: BoxDecoration(
-          color: Color(0xff1EA074),
+          color: Color(0xFF00BFA5),
           // gradient: LinearGradient(
           //   begin: AlignmentGeometry.topRight,
           //   end: AlignmentGeometry.bottomLeft,

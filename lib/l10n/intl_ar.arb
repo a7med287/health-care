@@ -6,5 +6,9 @@
   "confirmPassword": "تأكيد كلمة المرور",
   "login": "تسجيل الدخول",
   "signUp": "انشاء حساب",
-  "alreadyHaveAccount": "هل لديك حساب بالفعل؟"
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+  "activationcode" : "كود التفعيل",
+  "enterActivationCode" : "يرجى إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني.",
+  "send" : "إرسال",
+  "resendCode" : "إعادة إرسال الرمز"
 }
