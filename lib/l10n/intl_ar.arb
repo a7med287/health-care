@@ -17,6 +17,8 @@
   "resendCode" : "إعادة إرسال الرمز",
   "createNewPassword" : "إنشاء كلمة مرور جديدة",
   "newPassword" : "كلمة مرور جديدة",
-  "save" : "حفظ"
-
+  "save" : "حفظ",
+  "Youdonothaveanaccount" : "ليس لديك حساب",
+  "registration" : "تسجيل"
+  
 }

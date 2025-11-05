@@ -183,6 +183,26 @@ class S {
   String get save {
     return Intl.message('Save', name: 'save', desc: '', args: []);
   }
+
+  /// `You do not have an account`
+  String get Youdonothaveanaccount {
+    return Intl.message(
+      'You do not have an account',
+      name: 'Youdonothaveanaccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `registration`
+  String get registration {
+    return Intl.message(
+      'registration',
+      name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
