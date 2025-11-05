@@ -13,5 +13,7 @@
   "resendCode" : "Resend Code",
   "createNewPassword" : "Create New Password",
   "newPassword" : "New Password",
-  "save" : "Save"
+  "save" : "Save",
+  "Youdonothaveanaccount" : "You do not have an account",
+  "registration" : "registration"
 }

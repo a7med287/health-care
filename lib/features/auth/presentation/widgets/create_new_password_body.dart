@@ -18,6 +18,7 @@ class CreateNewPasswordBody extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Image.asset(Assets.backAuthImage, fit: BoxFit.fill),
+            
           ),
 
           Positioned(
