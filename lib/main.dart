@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:health_care/features/auth/presentation/views/register_view.dart';
 
 import 'core/utils/app_colors.dart';
-import 'features/splash/presentation/views/splash_view.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -26,7 +26,7 @@ class HealthCare extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
 
         // switch language ar => arabic OR en => english
-        locale: Locale("ar"),
+        locale: Locale("en"),
 
         theme: ThemeData(
           fontFamily: "Tajawal",
@@ -35,7 +35,7 @@ class HealthCare extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         ),
 
-        
-        home: const SplashView());
+
+        home: const RegisterView());
   }
 }

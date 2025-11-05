@@ -10,5 +10,8 @@
   "activationcode" : "Activation Code",
   "enterActivationCode" : "Please enter the activation code sent to your email.",
   "send" : "Send",
-  "resendCode" : "Resend Code"
+  "resendCode" : "Resend Code",
+  "createNewPassword" : "Create New Password",
+  "newPassword" : "New Password",
+  "save" : "Save"
 }

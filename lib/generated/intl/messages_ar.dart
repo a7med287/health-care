@@ -40,5 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "signUp": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
+    "createNewPassword": MessageLookupByLibrary.simpleMessage("إنشاء كلمة مرور جديدة"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
+    "save": MessageLookupByLibrary.simpleMessage("حفظ"),
   };
 }
