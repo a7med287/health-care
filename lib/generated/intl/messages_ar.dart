@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟",
     ),
+    "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
@@ -41,6 +42,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "rememberPassword": MessageLookupByLibrary.simpleMessage(
+      "هل تذكرت كلمة المرور؟",
+    ),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("إرسال رابط التغيير"),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
