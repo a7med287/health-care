@@ -7,6 +7,10 @@
   "login": "Login",
   "signUp": "Sign Up",
   "alreadyHaveAccount": "Already have an account?",
+  "changePassword": "Change Password",
+  "sendResetLink": "Send Reset Link",
+  "rememberPassword": "Remember your password?",
+  "forgotPasswordHint": "Please enter your email to receive your verification code."
   "activationcode" : "Activation Code",
   "enterActivationCode" : "Please enter the activation code sent to your email.",
   "send" : "Send",

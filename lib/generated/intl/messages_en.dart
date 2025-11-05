@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
+    "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "createNewAccount": MessageLookupByLibrary.simpleMessage(
       "Create New Account",
@@ -37,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create New Password",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "forgotPasswordHint": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email to receive your verification code.",
     "enterActivationCode": MessageLookupByLibrary.simpleMessage(
       "Please enter the activation code sent to your email.",
     ),
@@ -45,6 +48,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "registration": MessageLookupByLibrary.simpleMessage("registration"),
+    "rememberPassword": MessageLookupByLibrary.simpleMessage(
+      "Remember your password?",
+    ),
+    "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),

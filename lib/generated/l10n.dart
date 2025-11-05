@@ -109,6 +109,11 @@ class S {
     );
   }
 
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
   /// `Activation Code`
   String get activationcode {
     return Intl.message(
@@ -119,6 +124,11 @@ class S {
     );
   }
 
+  /// `Send Reset Link`
+  String get sendResetLink {
+    return Intl.message(
+      'Send Reset Link',
+      name: 'sendResetLink',
   /// `Please enter the activation code sent to your email.`
   String get enterActivationCode {
     return Intl.message(
@@ -129,6 +139,11 @@ class S {
     );
   }
 
+  /// `Remember your password?`
+  String get rememberPassword {
+    return Intl.message(
+      'Remember your password?',
+      name: 'rememberPassword',
   /// `Send`
   String get send {
     return Intl.message('Send', name: 'send', desc: '', args: []);
@@ -149,6 +164,11 @@ class S {
     );
   }
 
+  /// `Please enter your email to receive your verification code.`
+  String get forgotPasswordHint {
+    return Intl.message(
+      'Please enter your email to receive your verification code.',
+      name: 'forgotPasswordHint',
   /// `New Password`
   String get newPassword {
     return Intl.message(
