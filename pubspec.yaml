@@ -31,10 +31,14 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.2.1
+  get_it: ^9.1.0
   intl_utils: ^2.8.12
+  modal_progress_hud_nsn: ^0.5.1
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
 

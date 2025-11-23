@@ -5,7 +5,7 @@ import 'package:health_care/core/widgets/custom_button.dart';
 import 'package:health_care/core/widgets/custom_text_form_field.dart';
 import 'package:health_care/features/auth/presentation/views/confirm_email_view.dart';
 import 'package:health_care/generated/l10n.dart';
-import '../../../../core/utils/app_images.dart';
+import '../../../../../core/utils/app_images.dart';
 
 class ForgotPasswordViewBody extends StatelessWidget {
   const ForgotPasswordViewBody({super.key});

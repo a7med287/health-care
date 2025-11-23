@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-import 'package:health_care/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:health_care/features/auth/presentation/views/login_view.dart';
-import 'package:health_care/features/auth/presentation/views/register_view.dart';
 import 'package:health_care/features/splash/presentation/views/widgets/animated_logo.dart';
 import '../../../../core/utils/app_images.dart';
 

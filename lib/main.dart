@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:health_care/features/auth/presentation/views/forgot_password_view.dart';
-import 'package:health_care/features/auth/presentation/views/confirm_email_view.dart';
-import 'package:health_care/features/auth/presentation/views/create_new_password_view.dart';
-import 'package:health_care/features/auth/presentation/views/login_view.dart';
-import 'package:health_care/features/auth/presentation/views/register_view.dart';
-import 'package:health_care/features/auth/presentation/widgets/login_view_body.dart';
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
 
 import 'core/utils/app_colors.dart';

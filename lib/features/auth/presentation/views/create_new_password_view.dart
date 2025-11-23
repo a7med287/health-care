@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/features/auth/presentation/widgets/create_new_password_body.dart';
+import 'package:health_care/features/auth/presentation/views/widgets/create_new_password_body.dart';
 
 class CreateNewPasswordView extends StatelessWidget {
   const CreateNewPasswordView({super.key});

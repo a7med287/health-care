@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:health_care/core/helpers/build_snak_bar.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/core/utils/app_images.dart';
 import 'package:health_care/core/utils/styles.dart';
 import 'package:health_care/core/widgets/custom_button.dart';
 import 'package:health_care/core/widgets/custom_text_form_field.dart';
 import 'package:health_care/core/widgets/password_text_filed.dart';
+import 'package:health_care/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:health_care/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:health_care/features/auth/presentation/views/register_view.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:health_care/generated/l10n.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -24,6 +24,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
+  late String email,password;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -123,17 +124,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             onTap: () {
                               if (formKey.currentState!.validate()) {
                                 formKey.currentState!.save();
-                                buildSnackBar(context, "Login Successful");
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => HomeView(),
-                                  ),
-                                );
+                                context.read<LoginCubit>().login(
+                                  email,
+                                  password,
+                                 );
                               } else {
-                                setState(() {
-                                  autovalidateMode = AutovalidateMode.always;
-                                });
+                                autovalidateMode = AutovalidateMode.always;
+                                setState(() {});
                               }
                             },
                           ),
