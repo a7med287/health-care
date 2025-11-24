@@ -5,7 +5,7 @@
   "password": "Password",
   "confirmPassword": "Confirm Password",
   "login": "Login",
-  "signUp": "Sign Up",
+  "register": "Register",
   "alreadyHaveAccount": "Already have an account?",
   "changePassword": "Change Password",
   "sendResetLink": "Send Reset Link",

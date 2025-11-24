@@ -60,7 +60,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "sendResetLink": MessageLookupByLibrary.simpleMessage("إرسال رابط التغيير"),
-    "signUp": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
     "thisIsRequired": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
   };
 }

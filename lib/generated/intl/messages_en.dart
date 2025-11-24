@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
     "registration": MessageLookupByLibrary.simpleMessage("registration"),
     "rememberPassword": MessageLookupByLibrary.simpleMessage(
       "Remember your password?",
@@ -58,7 +59,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
-    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "thisIsRequired": MessageLookupByLibrary.simpleMessage("this is required"),
   };
 }
