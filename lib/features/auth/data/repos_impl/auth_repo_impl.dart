@@ -30,4 +30,35 @@ class AuthRepoImpl extends AuthRepo {
 
     return user;
   }
+  
+  @override
+  Future<bool> register(
+    String fullName, 
+    String email, 
+    String password, 
+    String phoneNumber
+    ) async {
+    var response = await apiServices.post(
+      "Auth/register",
+      body: {
+        "email": email,
+        "password": password,
+        "fullName": fullName,
+        "phoneNumber" : phoneNumber,
+      },
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": "application/json",
+      },
+    );
+    if (response["isSuccess"] == true && response["statusCode"] == 200) {
+      return true;
+    } else {
+      final errors = response["errorCode"];
+      if (errors is List) {
+        throw Exception(errors.join("\n"));
+      }
+      throw Exception(response["message"]);
+    }
+  }
 }

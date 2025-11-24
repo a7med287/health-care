@@ -1,145 +1,176 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/core/utils/styles.dart';
 import 'package:health_care/core/widgets/custom_button.dart';
 import 'package:health_care/core/widgets/custom_text_form_field.dart';
 import 'package:health_care/core/widgets/password_text_filed.dart';
+import 'package:health_care/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:health_care/generated/l10n.dart';
 
 import '../../../../../core/utils/app_images.dart';
 
-class RegisterViewBody extends StatelessWidget {
+class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
 
   @override
+  State<RegisterViewBody> createState() => _RegisterViewBodyState();
+}
+
+class _RegisterViewBodyState extends State<RegisterViewBody> {
+  GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  late String fullName, email, password, phoneNumber;
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Stack(
-        children: [
-          // back image
-          SizedBox(
-            width: double.infinity,
-            child: Image.asset(Assets.backAuthImage, fit: BoxFit.fill),
-          ),
-
-          // logo
-          Positioned(
-            left: 0,
-            right: 0,
-            top: MediaQuery.of(context).size.height * .09,
-            child: Column(
-              children: [
-                SvgPicture.asset(Assets.logo),
-                SvgPicture.asset(Assets.textLogo),
-              ],
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Stack(
+          children: [
+            // back image
+            SizedBox(
+              width: double.infinity,
+              child: Image.asset(Assets.backAuthImage, fit: BoxFit.fill),
             ),
-          ),
-
-          // register section
-          Positioned(
-            bottom: 0,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * .7,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(40),
-                ),
+      
+            // logo
+            Positioned(
+              left: 0,
+              right: 0,
+              top: MediaQuery.of(context).size.height * .09,
+              child: Column(
+                children: [
+                  SvgPicture.asset(Assets.logo),
+                  SvgPicture.asset(Assets.textLogo),
+                ],
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 36),
-                      Text(
-                        S.of(context).createNewAccount,
-                        style: Styles.textStyleBold24,
-                      ),
-
-                      const SizedBox(height: 24),
-
-                      Text(
-                        S.of(context).fullName,
-                        style: Styles.textStyleRegular16,
-                      ),
-                      const SizedBox(height: 8),
-                      const CustomTextFormField(
-                        iconData: Icons.person_outlined,
-                        textInputType: TextInputType.name,
-                      ),
-
-                      const SizedBox(height: 16),
-
-                      Text(
-                        S.of(context).email,
-                        style: Styles.textStyleRegular16,
-                      ),
-                      const SizedBox(height: 8),
-                      const CustomTextFormField(
-                        iconData: Icons.email_outlined,
-                        textInputType: TextInputType.emailAddress,
-                      ),
-
-                      const SizedBox(height: 16),
-
-                      Text(
-                        S.of(context).password,
-                        style: Styles.textStyleRegular16,
-                      ),
-                      const SizedBox(height: 8),
-                      const PasswordTextFormField(),
-
-                      const SizedBox(height: 16),
-
-                      Text(
-                        S.of(context).confirmPassword,
-                        style: Styles.textStyleRegular16,
-                      ),
-                      const SizedBox(height: 8),
-                      const PasswordTextFormField(),
-
-                      const SizedBox(height: 36),
-
-                      CustomButton(text: S.of(context).signUp),
-
-                      const SizedBox(height: 36),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            S.of(context).alreadyHaveAccount,
-                            style: Styles.textStyleMedium16,
-                          ),
-                          InkWell(
-                            onTap: (){
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              S.of(context).login,
-                              style: Styles.textStyleMedium16.copyWith(
-                                color: AppColors.primaryColor,
-                                fontSize: 18,
+            ),
+      
+            // register section
+            Positioned(
+              bottom: 0,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * .7,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 36),
+                        Text(
+                          S.of(context).createNewAccount,
+                          style: Styles.textStyleBold24,
+                        ),
+      
+                        const SizedBox(height: 24),
+      
+                        Text(
+                          S.of(context).fullName,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 8),
+                        const CustomTextFormField(
+                          iconData: Icons.person_outlined,
+                          textInputType: TextInputType.name,
+                        ),
+      
+                        const SizedBox(height: 16),
+      
+                        Text(
+                          S.of(context).email,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 8),
+                        const CustomTextFormField(
+                          iconData: Icons.email_outlined,
+                          textInputType: TextInputType.emailAddress,
+                        ),
+      
+                        const SizedBox(height: 16),
+      
+                        Text(
+                          S.of(context).password,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 8),
+                        const PasswordTextFormField(),
+      
+                        const SizedBox(height: 16),
+      
+                        Text(
+                          S.of(context).confirmPassword,
+                          style: Styles.textStyleRegular16,
+                        ),
+                        const SizedBox(height: 8),
+                        const PasswordTextFormField(),
+      
+                        const SizedBox(height: 36),
+      
+                        CustomButton(
+                          text: S.of(context).register,
+                          onTap: () {
+                            if (formKey.currentState!.validate()) {
+                             formKey.currentState!.save();
+                             context.read<RegisterCubit>().register(
+                                fullName,
+                                email.trim(),
+                                password,
+                                phoneNumber,
+                             );
+                            } else {
+                             autovalidateMode = AutovalidateMode.always;
+                             setState(() {});
+                           }
+                         },
+                        ),
+      
+                        const SizedBox(height: 36),
+      
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              S.of(context).alreadyHaveAccount,
+                              style: Styles.textStyleMedium16,
+                            ),
+                            InkWell(
+                              onTap: (){
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                S.of(context).login,
+                                style: Styles.textStyleMedium16.copyWith(
+                                  color: AppColors.primaryColor,
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(height: 36),
-                    ],
+                          ],
+                        ),
+      
+                        const SizedBox(height: 36),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
