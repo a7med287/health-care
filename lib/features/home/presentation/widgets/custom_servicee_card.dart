@@ -1,40 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/features/home/presentation/widgets/custom_service_card.dart';
-import 'package:health_care/features/home/presentation/widgets/header_blue_box.dart';
-
-class ServicesSection extends StatelessWidget {
-  const ServicesSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-
-          // header blue box
-          CustomHeaderBlueBox(),
-
-          const SizedBox(height: 18),
-
-          // horizental service card
-          ServiceCards(),
-
-          const SizedBox(height: 20),
-        ],
-      ),
-    );
-  }
-}
-
 // reasable service card 
-class ServiceCard extends StatelessWidget {
+class ServiceCardItem extends StatelessWidget {
   final IconData icon;
   final String title;
   final String text;
 
-  const ServiceCard({
+  const ServiceCardItem({
     super.key,
     required this.icon,
     required this.title,
@@ -43,8 +14,27 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return CustomServiceCard(icon: icon, title: title, text: text);
+  }
+}
+
+
+class CustomServiceCard extends StatelessWidget {
+  const CustomServiceCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.text,
+  });
+
+  final IconData icon;
+  final String title;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      width: 150, // عرض الكارت في ال scroll الأفقي
+      width: 150,
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -62,7 +52,7 @@ class ServiceCard extends StatelessWidget {
         children: [
           Icon(icon, size: 38, color: Color(0xFF03C1E8)),
           const SizedBox(height: 12),
-
+    
           Text(
             title,
             textAlign: TextAlign.center,
@@ -72,9 +62,9 @@ class ServiceCard extends StatelessWidget {
               height: 1.3,
             ),
           ),
-
+    
           const SizedBox(height: 8),
-
+    
           Text(
             text,
             textAlign: TextAlign.center,
