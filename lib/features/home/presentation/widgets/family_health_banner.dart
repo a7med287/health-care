@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/core/utils/app_colors.dart';
 
 class FamilyHealthBanner extends StatelessWidget {
   const FamilyHealthBanner({super.key});

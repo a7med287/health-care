@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/features/home/presentation/widgets/custom_service_card.dart';
-import 'package:health_care/features/home/presentation/widgets/header_blue_box.dart';
-
+import 'package:health_care/features/home/presentation/widgets/service_card.dart';
 class ServicesSection extends StatelessWidget {
   const ServicesSection({super.key});
 
@@ -14,7 +12,7 @@ class ServicesSection extends StatelessWidget {
         children: [
 
           // header blue box
-          CustomHeaderBlueBox(),
+          // CustomHeaderBlueBox(),
 
           const SizedBox(height: 18),
 
