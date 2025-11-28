@@ -26,7 +26,7 @@ class HealthCare extends StatelessWidget {
         supportedLocales: S.delegate.supportedLocales,
 
         // switch language ar => arabic OR en => english
-        locale: Locale("ar"),
+        locale: Locale("en"),
 
         theme: ThemeData(
           fontFamily: "Tajawal",
