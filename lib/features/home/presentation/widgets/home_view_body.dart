@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
 import 'custom_text_field.dart';
 import 'family_health_banner.dart';
 import 'head_of_home_page.dart';
 import 'recsent_post_section.dart';
 import 'service_section.dart';
 import 'stats_row.dart';
+=======
+import 'package:health_care/features/home/presentation/widgets/custom_text_field.dart';
+import 'package:health_care/features/home/presentation/widgets/family_health_banner.dart';
+import 'package:health_care/features/home/presentation/widgets/head_of_home_page.dart';
+import 'package:health_care/features/home/presentation/widgets/recsent_post_section.dart';
+import 'package:health_care/features/home/presentation/widgets/service_section.dart';
+import 'package:health_care/features/home/presentation/widgets/stats_row.dart';
+>>>>>>> Stashed changes
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -13,6 +22,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
+<<<<<<< Updated upstream
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -34,6 +44,46 @@ class HomeViewBody extends StatelessWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 20)),
           const RecentPostsSliver(),
         ],
+=======
+      child: Center(
+        child: CustomScrollView(
+          slivers: [
+
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  HeadOfHomePage(),
+
+                  const SizedBox(height: 16),
+                  //  البحث
+                  CustomTextField(),
+
+                  const SizedBox(height: 20),
+
+                  const FamilyHealthBanner(),
+
+                  const SizedBox(height: 16),
+
+                  const StatsRow(),
+                  const SizedBox(height: 16),
+                ],
+              ),
+            ),
+
+
+           // sliver
+            ServicesSection(),
+
+            SliverToBoxAdapter(child: const SizedBox(height: 20)),
+
+            // sliver
+            RecentPostsSliver(),
+
+           
+          ],
+        ),
+>>>>>>> Stashed changes
       ),
     );
   }

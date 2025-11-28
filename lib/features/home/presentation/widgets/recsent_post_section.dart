@@ -6,6 +6,7 @@ class RecentPostsSliver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
+
       child: Container(
         color: const Color(0xFFF5F5F5),
         child: Column(
@@ -71,6 +72,7 @@ class RecentPostsSliver extends StatelessWidget {
           ],
         ),
       ),
+      
     );
   }
 }
@@ -148,10 +150,6 @@ class _BlogCard extends StatelessWidget {
 }
 
 
-
-// =========================================
-// Post Model + Demo Data with IMAGES
-// =========================================
 class Post {
   final String title;
   final String date;
