@@ -29,6 +29,7 @@ class _HomeViewState extends State<HomeView> {
       body: SafeArea(
         child: HomeViewBody(),
         ),
+        
         bottomNavigationBar: AnimatedBottomNav(
         currentIndex: currentIndex,
         items: navItems,
