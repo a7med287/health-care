@@ -5,7 +5,7 @@
   "password": "كلمة المرور",
   "confirmPassword": "تأكيد كلمة المرور",
   "login": "تسجيل الدخول",
-  "Register": "انشاء حساب",
+  "signUp": "انشاء حساب",
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
   "changePassword": "تغيير كلمة المرور",
   "sendResetLink": "إرسال رابط التغيير",

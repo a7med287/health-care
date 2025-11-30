@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:health_care/features/clinic/Presentation/views/clinic_view.dart';
+import 'package:health_care/features/doctors/presentation/views/doctor_view.dart';
+import 'package:health_care/features/doctors/presentation/widgets/doctor_view_body.dart';
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
 
 import 'core/utils/app_colors.dart';
@@ -36,6 +39,6 @@ class HealthCare extends StatelessWidget {
         ),
 
 
-        home: const SplashView());
+        home: const DoctorView());
   }
 }
