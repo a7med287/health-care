@@ -39,6 +39,6 @@ class HealthCare extends StatelessWidget {
         ),
 
 
-        home: const DoctorView());
+        home: SplashView());
   }
 }

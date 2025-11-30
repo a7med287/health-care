@@ -26,7 +26,10 @@ class _DoctorCardState extends State<DoctorCard> {
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 16),
+        constraints: const BoxConstraints(
+          maxHeight: double.infinity,
+        ),
+        margin: const EdgeInsets.only(right: 0),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -40,6 +43,7 @@ class _DoctorCardState extends State<DoctorCard> {
           ],
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Doctor Profile Header
@@ -113,6 +117,8 @@ class _DoctorCardState extends State<DoctorCard> {
                           fontSize: 12,
                           color: Colors.grey[600],
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 8),
                       // Experience and Patients Tags
@@ -169,6 +175,8 @@ class _DoctorCardState extends State<DoctorCard> {
                 color: Colors.grey[700],
                 height: 1.4,
               ),
+              maxLines: _isDescriptionExpanded ? null : 3,
+              overflow: _isDescriptionExpanded ? null : TextOverflow.ellipsis,
             ),
             if (widget.doctor.description.length > 80)
               GestureDetector(
@@ -192,33 +200,42 @@ class _DoctorCardState extends State<DoctorCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  widget.doctor.consultationFeeRange,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                Flexible(
+                  child: Text(
+                    widget.doctor.consultationFeeRange,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: widget.onBookAppointment,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.mainColor,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 12,
+                const SizedBox(width: 8),
+                Flexible(
+                  child: ElevatedButton(
+                    onPressed: widget.onBookAppointment,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.mainColor,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 0,
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Book appointment',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                    child: const Text(
+                      'Book appointment',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),

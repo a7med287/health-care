@@ -7,34 +7,41 @@ class DoctorsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: demoDoctors.length,
-      itemBuilder: (context, index) {
-        final doctor = demoDoctors[index];
-        return DoctorCard(
-          doctor: doctor,
-          onBookAppointment: () {
-            // TODO: Navigate to booking page
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => BookAppointmentView(doctor: doctor),
-            //   ),
-            // );
-          },
-          onTap: () {
-            // TODO: Navigate to doctor details page
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => DoctorDetailsView(doctor: doctor),
-            //   ),
-            // );
-          },
-        );
-      },
+    return SizedBox(
+      height: 400,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        itemCount: demoDoctors.length,
+        separatorBuilder: (context, index) => const SizedBox(width: 16),
+        itemBuilder: (context, index) {
+          final doctor = demoDoctors[index];
+          return SizedBox(
+            width: 350,
+            child: DoctorCard(
+              doctor: doctor,
+              onBookAppointment: () {
+                // TODO: Navigate to booking page
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => BookAppointmentView(doctor: doctor),
+                //   ),
+                // );
+              },
+              onTap: () {
+                // TODO: Navigate to doctor details page
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => DoctorDetailsView(doctor: doctor),
+                //   ),
+                // );
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
