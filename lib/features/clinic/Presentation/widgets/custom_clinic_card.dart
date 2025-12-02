@@ -19,9 +19,7 @@ class ClinicCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 0.75,
       child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.antiAlias,
         elevation: 3,
         child: Column(
@@ -30,11 +28,37 @@ class ClinicCard extends StatelessWidget {
             // -------- الصورة --------
             Expanded(
               flex: 2,
-              child: Image.asset(
-                imageUrl,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
+              child: (imageUrl.isNotEmpty)
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(16),
+                      ),
+                      child: Image.network(
+                        imageUrl,
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover, // يملأ المساحة بالكامل
+                        alignment: Alignment.center,
+                        errorBuilder: (context, error, stackTrace) =>
+                            Image.asset(
+                              "assets/images/r3.png",
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                      ),
+                    )
+                  : ClipRRect(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(16),
+                      ),
+                      child: Image.asset(
+                        "assets/images/r3.png",
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
             ),
 
             // -------- البيانات --------
@@ -57,20 +81,14 @@ class ClinicCard extends StatelessWidget {
 
                     Text(
                       phone,
-                      style: const TextStyle(
-                        fontSize: 11,
-                        color: Colors.grey,
-                      ),
+                      style: const TextStyle(fontSize: 11, color: Colors.grey),
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 2),
 
                     Text(
                       location,
-                      style: const TextStyle(
-                        fontSize: 7,
-                        color: Colors.grey,
-                      ),
+                      style: const TextStyle(fontSize: 7, color: Colors.grey),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
