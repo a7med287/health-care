@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/features/doctors/presentation/widgets/Doctor_Categories_Section.dart';
-import 'package:health_care/features/doctors/presentation/widgets/Doctors_List_Section.dart';
+import 'package:health_care/features/doctors/presentation/widgets/doctors_list_section.dart';
 
 
 class DoctorViewBody extends StatefulWidget {
@@ -11,7 +10,7 @@ class DoctorViewBody extends StatefulWidget {
 }
 
 class _DoctorViewBodyState extends State<DoctorViewBody> {
-  String selectedSpecialty = "All";
+
 
   final List<Map<String, String>> allDoctors = [
     {
@@ -58,13 +57,10 @@ class _DoctorViewBodyState extends State<DoctorViewBody> {
     },
   ];
 
+
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> filteredList = selectedSpecialty == "All"
-        ? allDoctors
-        : allDoctors
-            .where((doctor) => doctor['specialty'] == selectedSpecialty)
-            .toList();
+
 
     return Scaffold(
       body: SafeArea(
@@ -73,19 +69,8 @@ class _DoctorViewBodyState extends State<DoctorViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DoctorCategoriesSection(
-                selectedSpecialty: selectedSpecialty,
-                onCategoryChanged: (newCategory) {
-                  setState(() {
-                    selectedSpecialty = newCategory;
-                  });
-                },
-              ),
-
-              const SizedBox(height: 20),
-
               Expanded(
-                child: DoctorsListSection(filteredList: filteredList),
+                child: DoctorsListSection(doctors: allDoctors,),
               ),
             ],
           ),

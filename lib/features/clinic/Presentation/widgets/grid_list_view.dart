@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:health_care/features/clinic/Data/models/cllinic_model.dart';
 import 'package:health_care/features/clinic/Presentation/widgets/custom_clinic_card.dart';
 
+import '../../../doctors/presentation/views/doctor_view.dart';
+
 class ClinicsGridView extends StatelessWidget {
   final List<ClinicModel> clinics;
 
@@ -25,11 +27,19 @@ class ClinicsGridView extends StatelessWidget {
           (context, index) {
             final clinic = clinics[index];
 
-            return ClinicCard(
-              imageUrl: clinic.logoPath ?? "",
-              name: clinic.name,
-              phone: clinic.phone,
-              location: clinic.address,
+            return InkWell(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DoctorView()),
+                );
+              },
+              child: ClinicCard(
+                imageUrl: clinic.logoPath ?? "",
+                name: clinic.name,
+                phone: clinic.phone,
+                location: clinic.address,
+              ),
             );
           },
           childCount: clinics.length,
