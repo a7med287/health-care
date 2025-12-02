@@ -1,13 +1,13 @@
+import 'package:health_care/constants.dart';
 import 'package:health_care/core/services/api_services.dart';
-import 'package:health_care/core/services/database_services.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
 import 'package:health_care/features/auth/data/models/user_model.dart';
 import 'package:health_care/features/auth/data/repos/auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiServices apiServices;
-  final DatabaseServices databaseServices;
 
-  AuthRepoImpl(this.databaseServices, {required this.apiServices});
+  AuthRepoImpl({required this.apiServices});
   @override
   Future<UserModel> login(String email, String password) async {
     var response = await apiServices.post(
@@ -24,27 +24,27 @@ class AuthRepoImpl extends AuthRepo {
     }
 
     final token = response["auth"]["token"];
-    await databaseServices.saveToken(token);
+    Prefs.setString(tokenKey, token);
 
     var user = UserModel.fromJson(response["user"]);
 
     return user;
   }
-  
+
   @override
   Future<bool> register(
-    String fullName, 
-    String email, 
-    String password, 
-    String phoneNumber
-    ) async {
+    String fullName,
+    String email,
+    String password,
+    String phoneNumber,
+  ) async {
     var response = await apiServices.post(
       "Auth/register",
       body: {
         "email": email,
         "password": password,
         "fullName": fullName,
-        "phoneNumber" : phoneNumber,
+        "phoneNumber": phoneNumber,
       },
       headers: {
         "Content-Type": 'application/json',
