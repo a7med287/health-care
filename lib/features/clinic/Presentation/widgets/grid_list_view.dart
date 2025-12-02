@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/features/clinic/Data/models/cllinic_model.dart';
 import 'package:health_care/features/clinic/Presentation/widgets/custom_clinic_card.dart';
- // لو الملف اسمه كده
 
 class ClinicsGridView extends StatelessWidget {
-  final List<Clinic> clinics;
+  final List<ClinicModel> clinics;
 
   const ClinicsGridView({
     super.key,
@@ -17,19 +16,20 @@ class ClinicsGridView extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       sliver: SliverGrid(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,        // 3 أعمدة
+          crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: 0.75,   // حسب حجم الكارد اللي عندك
+          childAspectRatio: 0.75,
         ),
         delegate: SliverChildBuilderDelegate(
           (context, index) {
             final clinic = clinics[index];
+
             return ClinicCard(
-              imageUrl: clinic.image,
+              imageUrl: clinic.logoPath ?? "",
               name: clinic.name,
               phone: clinic.phone,
-              location: clinic.location,
+              location: clinic.address,
             );
           },
           childCount: clinics.length,

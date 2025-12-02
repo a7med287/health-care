@@ -1,13 +1,34 @@
-class Clinic {
-  final String image;
+class ClinicModel {
+  final String id;
   final String name;
+  final String email;
+  final String address;
   final String phone;
-  final String location;
+  final int price;
+  final String? logoPath;
+  final String medicalSpecialty;
 
-  Clinic({
-    required this.image,
+  ClinicModel({
+    required this.id,
     required this.name,
+    required this.email,
+    required this.address,
     required this.phone,
-    required this.location,
+    required this.price,
+    required this.logoPath,
+    required this.medicalSpecialty,
   });
+
+  factory ClinicModel.fromJson(Map<String, dynamic> json) {
+    return ClinicModel(
+      id: json["id"] ?? "",
+      name: json["name"] ?? "",
+      email: json["email"] ?? "",
+      address: json["address"] ?? "",
+      phone: json["phone"] ?? "",
+      price: json["price"] ?? 0,
+      logoPath: json["logopath"],
+      medicalSpecialty: json["medicalspecialty"] ?? "",
+    );
+  }
 }
