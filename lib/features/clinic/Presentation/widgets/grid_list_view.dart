@@ -31,7 +31,7 @@ class ClinicsGridView extends StatelessWidget {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => DoctorView()),
+                  MaterialPageRoute(builder: (context) => DoctorView(clinicId: clinic.id,)),
                 );
               },
               child: ClinicCard(

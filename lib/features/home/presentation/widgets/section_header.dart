@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-import 'package:health_care/features/doctors/presentation/views/doctor_view.dart';
-import 'package:health_care/features/doctors/presentation/widgets/doctor_view_body.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
@@ -32,14 +30,14 @@ class SectionHeader extends StatelessWidget {
         ),
         if (showSeeAll)
           GestureDetector(
-            onTap:
-                onSeeAllTap ??
-                () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DoctorView()),
-                  );
-                },
+            // onTap:
+            //     onSeeAllTap ??
+            //     () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(builder: (context) => DoctorView()),
+            //       );
+            //     },
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
