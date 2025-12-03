@@ -17,7 +17,7 @@ class ClinicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 0.75,
+      aspectRatio: 0.62,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.antiAlias,
@@ -25,43 +25,20 @@ class ClinicCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // -------- الصورة --------
+            // image
             Expanded(
-              flex: 2,
-              child: (imageUrl.isNotEmpty)
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(16),
-                      ),
-                      child: Image.network(
-                        imageUrl,
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover, // يملأ المساحة بالكامل
-                        alignment: Alignment.center,
-                        errorBuilder: (context, error, stackTrace) =>
-                            Image.asset(
-                              "assets/images/r3.png",
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.cover,
-                            ),
-                      ),
+              flex: 1,
+              child: imageUrl.isNotEmpty
+                  ? Image.network(
+                      imageUrl,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (c, e, s) =>
+                          Image.asset("assets/images/default.png", fit: BoxFit.cover),
                     )
-                  : ClipRRect(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(16),
-                      ),
-                      child: Image.asset(
-                        "assets/images/r3.png",
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  : Image.asset("assets/images/default.png", fit: BoxFit.cover),
             ),
-
-            // -------- البيانات --------
+            // details
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(6.0),
@@ -69,28 +46,13 @@ class ClinicCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    Text(name,
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                        overflow: TextOverflow.ellipsis),
                     const SizedBox(height: 2),
-
-                    Text(
-                      phone,
-                      style: const TextStyle(fontSize: 11, color: Colors.grey),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    Text(phone, style: const TextStyle(fontSize: 11, color: Colors.grey)),
                     const SizedBox(height: 2),
-
-                    Text(
-                      location,
-                      style: const TextStyle(fontSize: 7, color: Colors.grey),
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    Text(location, style: const TextStyle(fontSize: 10, color: Colors.grey), overflow: TextOverflow.ellipsis),
                   ],
                 ),
               ),

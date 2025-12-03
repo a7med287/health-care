@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:health_care/features/clinic/Data/models/cllinic_model.dart';
+import '../models/cllinic_model.dart';
 import '../models/clinics_response.dart';
 
 class ClinicService {

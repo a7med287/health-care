@@ -21,6 +21,7 @@ class ClinicModel {
 
   factory ClinicModel.fromJson(Map<String, dynamic> json) {
     return ClinicModel(
+      
       id: json["id"] ?? "",
       name: json["name"] ?? "",
       email: json["email"] ?? "",
