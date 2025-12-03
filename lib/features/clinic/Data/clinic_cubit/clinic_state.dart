@@ -1,5 +1,6 @@
 import 'package:health_care/features/clinic/Data/models/cllinic_model.dart';
 
+
 abstract class ClinicState {}
 
 class ClinicInitial extends ClinicState {}
