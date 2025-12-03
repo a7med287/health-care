@@ -3,9 +3,10 @@ import 'package:health_care/core/utils/styles.dart';
 
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.onTap, required this.text});
+  const CustomButton({super.key, this.onTap, required this.text,  this.radius =40});
   final void Function()? onTap;
   final String text;
+  final double radius;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,7 +21,7 @@ class CustomButton extends StatelessWidget {
           //   end: AlignmentGeometry.bottomLeft,
           //   colors: [AppColors.primaryColor, AppColors.lightPrimaryColor],
           // ),
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(radius),
         ),
         child: Center(
           child: Text(

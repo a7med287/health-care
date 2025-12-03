@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:health_care/features/doctors/presentation/widgets/Booking_Dialog.dart';
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
 import 'core/utils/app_colors.dart';
 import 'generated/l10n.dart';
 
 void main() {
+
+
   runApp(const HealthCare());
+
+
 }
 
 class HealthCare extends StatelessWidget {
@@ -34,6 +37,7 @@ class HealthCare extends StatelessWidget {
           primaryColor: AppColors.primaryColor,
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         ),
+
 
 
         home: SplashView());
