@@ -29,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
 
                 const SizedBox(height: _sectionSpacing),
 
-                const CustomTextField(),
+                //const CustomTextField(),
 
                 const SizedBox(height: _sectionSpacing),
 
