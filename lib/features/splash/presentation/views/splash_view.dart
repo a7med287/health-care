@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ClinicView()),
+        MaterialPageRoute(builder: (context) => HomeView()),
       );
     });
   }

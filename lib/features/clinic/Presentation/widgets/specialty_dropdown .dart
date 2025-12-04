@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-import 'package:health_care/features/clinic/Data/clinic_cubit/clinic_cubit.dart';
+import 'package:health_care/features/clinic/Presentation/clinic_cubit/clinic_cubit.dart';
 
 class SpecialtyDropdown extends StatefulWidget {
   const SpecialtyDropdown({super.key});
