@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:health_care/features/clinic/Data/clinic_cubit/clinic_cubit.dart';
-import 'package:health_care/features/clinic/Data/clinic_cubit/clinic_state.dart';
+import 'package:health_care/features/clinic/Presentation/clinic_cubit/clinic_cubit.dart';
+import 'package:health_care/features/clinic/Presentation/clinic_cubit/clinic_state.dart';
 import 'package:health_care/features/clinic/Presentation/widgets/grid_list_view.dart';
 import 'package:health_care/features/clinic/Presentation/widgets/specialty_dropdown%20.dart';
 

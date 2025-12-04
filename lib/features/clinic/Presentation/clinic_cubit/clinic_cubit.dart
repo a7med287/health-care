@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../models/cllinic_model.dart';
-import '../service/clinic_service.dart';
+import '../../Data/models/cllinic_model.dart';
+import '../../Data/service/clinic_service.dart';
 import 'clinic_state.dart';
 
 class ClinicCubit extends Cubit<ClinicState> {
