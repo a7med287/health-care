@@ -17,7 +17,7 @@ class VerifyViewBodyBlockConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is VerifySuccess) {
           buildSnackBar(context, "Verified Successful, Login");
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => LoginView()),
           );
@@ -25,10 +25,16 @@ class VerifyViewBodyBlockConsumer extends StatelessWidget {
           buildSnackBar(context, state.errorMessage, isError: true);
           debugPrint(state.errorMessage);
         }
+        if (state is ResendOtpSuccess) {
+          buildSnackBar(context, "Otp Resend Successful");
+        } else if (state is ResendOtpFailure) {
+          buildSnackBar(context, state.errorMessage, isError: true);
+          debugPrint(state.errorMessage);
+        }
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: state is VerifyLoading,
+          inAsyncCall: state is VerifyLoading || state is ResendOtpLoading,
           child: VerifyViewBody(email: email,),
         );
       },

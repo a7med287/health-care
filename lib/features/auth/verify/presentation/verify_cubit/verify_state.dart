@@ -13,5 +13,13 @@ class VerifyFailure extends VerifyState {
 
   VerifyFailure(this.errorMessage);
 
+}
 
+class ResendOtpLoading extends VerifyState {}
+
+class ResendOtpSuccess extends VerifyState {}
+
+class ResendOtpFailure extends VerifyState {
+  final String errorMessage;
+  ResendOtpFailure(this.errorMessage);
 }

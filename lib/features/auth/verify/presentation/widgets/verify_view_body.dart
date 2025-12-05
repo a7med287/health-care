@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/auth/verify/presentation/widgets/pin_digits_widget.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
@@ -49,18 +50,14 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
 
           PinDigitsWidget(
             valueChangedCode: (value) {
-
               otp = value;
-
             },
-
           ),
 
           const SizedBox(height: 16),
           CustomButton(
             text: "Verify Code",
             onTap: () {
-
               debugPrint("code is $otp And email is ${widget.email}");
 
               context.read<VerifyCubit>().verifyEmail(
@@ -69,6 +66,36 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
               );
             },
             radius: 16,
+          ),
+          const SizedBox(height: 16),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "didn't resave any Code?",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontFamily: "aago",
+                  color: Colors.grey,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              InkWell(
+                onTap: () {
+                  context.read<VerifyCubit>().resendOtp(widget.email);
+                },
+                child: const Text(
+                  " Resend Code !",
+                  style: TextStyle(
+                    color: AppColors.mainColor,
+                    fontSize: 16,
+                    fontFamily: "LibreBaskerville",
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

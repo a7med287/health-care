@@ -21,4 +21,14 @@ class VerifyCubit extends Cubit<VerifyState> {
       emit(VerifyFailure(e.toString()));
     }
   }
+
+  Future<void> resendOtp(String email) async {
+    emit(ResendOtpLoading());
+    try {
+      await verifyRegister.resendOtp(email);
+      emit(ResendOtpSuccess());
+    } catch (e) {
+      emit(ResendOtpFailure(e.toString()));
+    }
+  }
 }
