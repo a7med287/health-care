@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care/features/auth/verify/presentation/widgets/pin_digits_widget.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
+import '../verify_cubit/verify_cubit.dart';
 import 'lock_image_widget.dart';
 
-class VerifyViewBody extends StatelessWidget {
-  const VerifyViewBody({super.key});
+class VerifyViewBody extends StatefulWidget {
+  const VerifyViewBody({super.key, required this.email});
 
+  final String email;
+
+  @override
+  State<VerifyViewBody> createState() => _VerifyViewBodyState();
+}
+
+class _VerifyViewBodyState extends State<VerifyViewBody> {
+  TextEditingController textController = TextEditingController();
+
+  String otp = "0";
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,10 +47,29 @@ class VerifyViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 50),
 
-          PinDigitsWidget(valueChangedCode: (value) {}),
+          PinDigitsWidget(
+            valueChangedCode: (value) {
+
+              otp = value;
+
+            },
+
+          ),
 
           const SizedBox(height: 16),
-          CustomButton(text: "Verify Code", onTap: () {},radius: 16,),
+          CustomButton(
+            text: "Verify Code",
+            onTap: () {
+
+              debugPrint("code is $otp And email is ${widget.email}");
+
+              context.read<VerifyCubit>().verifyEmail(
+                email: widget.email,
+                otp: otp,
+              );
+            },
+            radius: 16,
+          ),
         ],
       ),
     );
