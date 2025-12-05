@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/core/utils/styles.dart';
 
 
@@ -15,7 +16,7 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         height: 50,
         decoration: BoxDecoration(
-          color: Color(0xFF00BFA5),
+          color: AppColors.mainColor,
           // gradient: LinearGradient(
           //   begin: AlignmentGeometry.topRight,
           //   end: AlignmentGeometry.bottomLeft,

@@ -6,6 +6,7 @@ import 'package:health_care/features/auth/register/cubit/register_cubit.dart';
 import 'package:health_care/features/auth/register/cubit/register_state.dart';
 import 'package:health_care/features/auth/register/data/model/register_request_model.dart';
 import 'package:health_care/features/auth/register/data/services/register_service.dart';
+import 'package:health_care/features/auth/verify/presentation/views/verify_view.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
@@ -20,7 +21,7 @@ class RegisterView extends StatelessWidget {
     return BlocProvider(
       create: (_) => RegisterCubit(RegisterService(Dio())),
       child: Scaffold(
-        backgroundColor: AppColors.mainColor, // ✅ لونك الأساسي
+        backgroundColor: AppColors.mainColor,
         body: SafeArea(
           child: BlocConsumer<RegisterCubit, RegisterState>(
             listener: (context, state) {
@@ -29,6 +30,15 @@ class RegisterView extends StatelessWidget {
                   const SnackBar(
                     content: Text("✅ Register Success"),
                     backgroundColor: Colors.green,
+                  ),
+                );
+
+                // navigate to verify
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        VerifyView(email: emailController.text),
                   ),
                 );
               }
@@ -122,38 +132,30 @@ class RegisterView extends StatelessWidget {
                                     height: 52,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        final model =
-                                            RegisterRequestModel(
-                                          email:
-                                              emailController.text,
-                                          password:
-                                              passwordController.text,
-                                          fullName:
-                                              nameController.text,
-                                          phoneNumber:
-                                              phoneController.text,
+                                        final model = RegisterRequestModel(
+                                          email: emailController.text,
+                                          password: passwordController.text,
+                                          fullName: nameController.text,
+                                          phoneNumber: phoneController.text,
                                         );
 
-                                        context
-                                            .read<RegisterCubit>()
-                                            .register(model);
+                                        context.read<RegisterCubit>().register(
+                                          model,
+                                        );
                                       },
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            AppColors.mainColor,
-                                        shape:
-                                            RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(
-                                                  12),
+                                        backgroundColor: AppColors.mainColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
                                         ),
                                       ),
                                       child: const Text(
                                         "Sign Up",
                                         style: TextStyle(
                                           fontSize: 18,
-                                          fontWeight:
-                                              FontWeight.bold,
+                                          fontWeight: FontWeight.bold,
                                           color: Colors.white,
                                         ),
                                       ),
@@ -164,23 +166,19 @@ class RegisterView extends StatelessWidget {
 
                             /// ✅ LOGIN TEXT
                             Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text(
-                                    "Already have an account? "),
+                                const Text("Already have an account? "),
                                 GestureDetector(
                                   onTap: () {},
                                   child: const Text(
                                     "Login",
                                     style: TextStyle(
-                                      color:
-                                          AppColors.mainColor,
-                                      fontWeight:
-                                          FontWeight.bold,
+                                      color: AppColors.mainColor,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ],
@@ -209,10 +207,7 @@ class RegisterView extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: AppColors.mainColor,
-          width: .8,
-        ),
+        border: Border.all(color: AppColors.mainColor, width: .8),
       ),
       child: TextField(
         controller: controller,
@@ -221,8 +216,7 @@ class RegisterView extends StatelessWidget {
           hintText: hint,
           prefixIcon: Icon(icon, color: AppColors.mainColor),
           border: InputBorder.none,
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 16),
+          contentPadding: const EdgeInsets.symmetric(vertical: 16),
         ),
       ),
     );
