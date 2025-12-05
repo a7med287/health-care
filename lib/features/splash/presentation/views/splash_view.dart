@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-import 'package:health_care/features/clinic/Presentation/views/clinic_view.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
+import 'package:health_care/features/auth/presentation/views/login_view.dart';
 import 'package:health_care/features/splash/presentation/views/widgets/animated_logo.dart';
 import '../../../../core/utils/app_images.dart';
 
@@ -22,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeView()),
+        MaterialPageRoute(builder: (context) => LoginView()),
       );
     });
   }
