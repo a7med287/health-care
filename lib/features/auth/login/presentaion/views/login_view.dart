@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/features/auth/login/presentaion/views/widgets/login_view_body.dart';
+
+
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -6,7 +9,8 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Hello Login"),),
+      body: LoginViewBody()
     );
   }
 }
+

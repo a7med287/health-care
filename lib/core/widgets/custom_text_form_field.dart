@@ -9,11 +9,13 @@ class CustomTextFormField extends StatefulWidget {
     this.onSaved,
     required this.iconData,
     required this.textInputType,
+    required this.hintText,
   });
 
   final void Function(String?)? onSaved;
   final IconData iconData;
   final TextInputType textInputType;
+  final String hintText;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -53,13 +55,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onSaved: widget.onSaved,
       keyboardType: widget.textInputType,
       decoration: InputDecoration(
+        hintText: widget.hintText,
         prefixIcon: Icon(
           widget.iconData,
-          color: isFocused ? AppColors.primaryColor : Colors.grey,
+          color: isFocused ? AppColors.mainColor : Colors.grey,
         ),
         border: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(color: AppColors.primaryColor),
+        focusedBorder: buildOutlineInputBorder(color:AppColors.mainColor),
         contentPadding: const EdgeInsets.symmetric(vertical: 13),
       ),
     );

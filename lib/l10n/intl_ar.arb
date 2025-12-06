@@ -22,7 +22,8 @@
   "Youdonothaveanaccount" : "ليس لديك حساب ؟",
   "registration" : "تسجيل",
   "forgotPassword": "هل نسيت كلمة المرور ؟",
-  "thisIsRequired": "هذا الحقل مطلوب"
+  "thisIsRequired": "هذا الحقل مطلوب",
+  "welcome": "مرحباً"
 
 
 }
