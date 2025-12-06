@@ -22,5 +22,6 @@
   "Youdonothaveanaccount" : "You do not have an account ?",
   "registration" : "registration",
   "forgotPassword": "Forgot Password ?",
-  "thisIsRequired": "this is required"
+  "thisIsRequired": "this is required",
+  "welcome": "welcome"
 }

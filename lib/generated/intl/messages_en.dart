@@ -60,5 +60,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "sendResetLink": MessageLookupByLibrary.simpleMessage("Send Reset Link"),
     "thisIsRequired": MessageLookupByLibrary.simpleMessage("this is required"),
+    "welcome": MessageLookupByLibrary.simpleMessage("welcome"),
   };
 }
