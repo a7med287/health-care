@@ -61,5 +61,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "sendResetLink": MessageLookupByLibrary.simpleMessage("إرسال رابط التغيير"),
     "thisIsRequired": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
+    "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
   };
 }
