@@ -4,7 +4,7 @@ import 'package:health_care/features/splash/presentation/views/splash_view.dart'
 import 'core/utils/app_colors.dart';
 import 'generated/l10n.dart';
 
-void main() {
+void main()  {
 
 
   runApp(const HealthCare());
