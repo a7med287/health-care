@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care/core/helpers/build_snak_bar.dart';
 import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
 import 'package:health_care/features/auth/verify/presentation/widgets/verify_view_body.dart';
+import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../verify_cubit/verify_cubit.dart';
@@ -19,7 +20,7 @@ class VerifyViewBodyBlockConsumer extends StatelessWidget {
           buildSnackBar(context, "Verified Successful, Login");
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => LoginView()),
+            MaterialPageRoute(builder: (context) => HomeView()),
           );
         } else if (state is VerifyFailure) {
           buildSnackBar(context, state.errorMessage, isError: true);

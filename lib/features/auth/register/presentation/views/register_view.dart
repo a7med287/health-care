@@ -6,7 +6,6 @@ import 'package:health_care/features/auth/register/cubit/register_cubit.dart';
 import 'package:health_care/features/auth/register/cubit/register_state.dart';
 import 'package:health_care/features/auth/register/data/model/register_request_model.dart';
 import 'package:health_care/features/auth/register/data/services/register_service.dart';
-import 'package:health_care/features/auth/verify/presentation/views/verify_view.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
@@ -28,17 +27,8 @@ class RegisterView extends StatelessWidget {
               if (state is RegisterSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text("✅ Register Success"),
+                    content: Text("✅ تم إنشاء الحساب بنجاح"),
                     backgroundColor: Colors.green,
-                  ),
-                );
-
-                // navigate to verify
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        VerifyView(email: emailController.text),
                   ),
                 );
               }
@@ -48,19 +38,22 @@ class RegisterView extends StatelessWidget {
                   SnackBar(
                     content: Text(state.error),
                     backgroundColor: Colors.red,
+                    duration: const Duration(seconds: 3),
                   ),
                 );
               }
             },
+
             builder: (context, state) {
               return Center(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(20),
+
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
 
-                      /// ✅ ICON / LOGO
+                      // logo && icon
                       const Icon(
                         Icons.medical_services,
                         size: 70,
@@ -69,7 +62,7 @@ class RegisterView extends StatelessWidget {
 
                       const SizedBox(height: 10),
 
-                      /// ✅ TITLE
+                      // title
                       const Text(
                         "Create Account",
                         style: TextStyle(
@@ -80,8 +73,6 @@ class RegisterView extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 25),
-
-                      /// ✅ WHITE CARD
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
@@ -124,7 +115,7 @@ class RegisterView extends StatelessWidget {
 
                             const SizedBox(height: 20),
 
-                            /// ✅ BUTTON / LOADING
+                            // loading
                             state is RegisterLoading
                                 ? const CircularProgressIndicator()
                                 : SizedBox(
@@ -164,7 +155,7 @@ class RegisterView extends StatelessWidget {
 
                             const SizedBox(height: 15),
 
-                            /// ✅ LOGIN TEXT
+                            // login text
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -195,7 +186,7 @@ class RegisterView extends StatelessWidget {
     );
   }
 
-  /// ✅ CUSTOM FIELD
+  //  custom field
   Widget _customField({
     required TextEditingController controller,
     required String hint,
