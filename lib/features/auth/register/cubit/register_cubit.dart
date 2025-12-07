@@ -9,13 +9,14 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.registerService) : super(RegisterInitial());
 
   Future<void> register(RegisterRequestModel model) async {
-    emit(RegisterLoading());
+  emit(RegisterLoading());
 
-    try {
-      await registerService.register(model);
-      emit(RegisterSuccess());
-    } catch (e) {
-      emit(RegisterFailure(e.toString()));
-    }
+  try {
+    await registerService.register(model);
+    emit(RegisterSuccess());
+  } catch (e) {
+    emit(RegisterFailure(e.toString().replaceAll("Exception: ", "")));
   }
+}
+
 }

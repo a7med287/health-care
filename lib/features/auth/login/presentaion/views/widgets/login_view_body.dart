@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_care/features/auth/forget_password/presentation/views/forget_password_view.dart';
 import 'package:health_care/features/auth/login/presentaion/login_cubit/login_cubit.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
@@ -7,7 +8,6 @@ import '../../../../../../core/widgets/custom_button.dart';
 import '../../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../../core/widgets/password_text_filed.dart';
 import 'dont_have_an_account_widget.dart';
-
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -75,20 +75,24 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
               const SizedBox(height: 16),
 
-              PasswordTextFormField(
-
-                onSaved: (value) => password = value ?? "",
-              ),
+              PasswordTextFormField(onSaved: (value) => password = value ?? ""),
 
               TextButton(
                 onPressed: () {
                   // Forgot password
                 },
-                child: const Text(
-                  "Forgot your password?",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgetPasswordView(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Forgot your password?",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                 ),
               ),
