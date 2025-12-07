@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/auth/verify/presentation/widgets/pin_digits_widget.dart';
-
 import '../../../../../core/widgets/custom_button.dart';
 import '../verify_cubit/verify_cubit.dart';
 import 'lock_image_widget.dart';
+import 'resend_otp_section.dart';
 
 class VerifyViewBody extends StatefulWidget {
   const VerifyViewBody({super.key, required this.email});
@@ -17,9 +16,14 @@ class VerifyViewBody extends StatefulWidget {
 }
 
 class _VerifyViewBodyState extends State<VerifyViewBody> {
-  TextEditingController textController = TextEditingController();
+  String otp = "";
 
-  String otp = "0";
+  @override
+  void initState() {
+    super.initState();
+    context.read<VerifyCubit>().startCountdown();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,6 +41,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          const SizedBox(height: 16),
           const Text(
             "We've sent a verification code. Please enter the code to verify your account",
             style: TextStyle(
@@ -48,6 +53,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
           ),
           const SizedBox(height: 50),
 
+          // 🔹 Pin code input
           PinDigitsWidget(
             valueChangedCode: (value) {
               otp = value;
@@ -55,11 +61,11 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
           ),
 
           const SizedBox(height: 16),
+
+          // 🔹 Verify button
           CustomButton(
             text: "Verify Code",
             onTap: () {
-              debugPrint("code is $otp And email is ${widget.email}");
-
               context.read<VerifyCubit>().verifyEmail(
                 email: widget.email,
                 otp: otp,
@@ -69,32 +75,20 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
           ),
           const SizedBox(height: 16),
 
+          // 🔹 Resend OTP Section
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "didn't resave any Code?",
+              const Text(
+                "Didn't receive any code?",
                 style: TextStyle(
                   fontSize: 16,
                   fontFamily: "aago",
                   color: Colors.grey,
                 ),
-                textAlign: TextAlign.center,
               ),
-              InkWell(
-                onTap: () {
-                  context.read<VerifyCubit>().resendOtp(widget.email);
-                },
-                child: const Text(
-                  " Resend Code !",
-                  style: TextStyle(
-                    color: AppColors.mainColor,
-                    fontSize: 16,
-                    fontFamily: "LibreBaskerville",
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+              const SizedBox(width: 6),
+              ResendOtpSection(email: widget.email),
             ],
           ),
         ],
