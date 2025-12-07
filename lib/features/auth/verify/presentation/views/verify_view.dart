@@ -14,7 +14,7 @@ class VerifyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => VerifyCubit(LoginService(Dio())),
+      create: (context) => VerifyCubit(VerifyService(Dio())),
       child: Scaffold(
 
           body: VerifyViewBodyBlockConsumer(email: email)

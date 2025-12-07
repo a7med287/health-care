@@ -1,18 +1,14 @@
-part of 'verify_cubit.dart';
+abstract class VerifyState {}
 
-@immutable
-sealed class VerifyState {}
+class VerifyInitial extends VerifyState {}
 
-final class VerifyInitial extends VerifyState {}
 class VerifyLoading extends VerifyState {}
 
 class VerifySuccess extends VerifyState {}
 
 class VerifyFailure extends VerifyState {
-  final String errorMessage;
-
-  VerifyFailure(this.errorMessage);
-
+  final String message;
+  VerifyFailure(this.message);
 }
 
 class ResendOtpLoading extends VerifyState {}
@@ -20,6 +16,13 @@ class ResendOtpLoading extends VerifyState {}
 class ResendOtpSuccess extends VerifyState {}
 
 class ResendOtpFailure extends VerifyState {
-  final String errorMessage;
-  ResendOtpFailure(this.errorMessage);
+  final String message;
+  ResendOtpFailure(this.message);
 }
+
+class CountdownTick extends VerifyState {
+  final int seconds;
+  CountdownTick(this.seconds);
+}
+
+class CountdownFinished extends VerifyState {}

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 
-class LoginService {
+class VerifyService {
   final Dio dio;
 
-  LoginService(this.dio);
+  VerifyService(this.dio);
 
-  Future<void> login({
+  Future<void> verify({
     required String email,
     required String otp,
   }) async {
