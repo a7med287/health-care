@@ -4,9 +4,10 @@ import '../../generated/l10n.dart';
 import '../utils/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({super.key, this.onSaved});
+  const PasswordTextFormField({super.key, this.onSaved,  this.hintText = "Enter Your Password"});
 
   final void Function(String?)? onSaved;
+  final String hintText;
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
 }
@@ -48,9 +49,10 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       onSaved: widget.onSaved,
       keyboardType: TextInputType.visiblePassword,
       decoration: InputDecoration(
+        hintText: widget.hintText,
         prefixIcon: Icon(
           Icons.lock_outline,
-          color: isFocused ? AppColors.primaryColor : Colors.grey,
+          color: isFocused ? AppColors.mainColor : Colors.grey,
         ),
         suffixIcon: IconButton(
           onPressed: () {
@@ -66,7 +68,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
         ),
         border: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(color: AppColors.primaryColor),
+        focusedBorder: buildOutlineInputBorder(color: AppColors.mainColor),
       ),
     );
   }

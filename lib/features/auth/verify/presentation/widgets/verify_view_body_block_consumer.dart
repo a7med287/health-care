@@ -7,6 +7,7 @@ import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../verify_cubit/verify_cubit.dart';
+import '../verify_cubit/verify_state.dart';
 
 class VerifyViewBodyBlockConsumer extends StatelessWidget {
   const VerifyViewBodyBlockConsumer({super.key, required this.email});
@@ -23,14 +24,14 @@ class VerifyViewBodyBlockConsumer extends StatelessWidget {
             MaterialPageRoute(builder: (context) => HomeView()),
           );
         } else if (state is VerifyFailure) {
-          buildSnackBar(context, state.errorMessage, isError: true);
-          debugPrint(state.errorMessage);
+          buildSnackBar(context, state.message, isError: true);
+          debugPrint(state.message);
         }
         if (state is ResendOtpSuccess) {
           buildSnackBar(context, "Otp Resend Successful");
         } else if (state is ResendOtpFailure) {
-          buildSnackBar(context, state.errorMessage, isError: true);
-          debugPrint(state.errorMessage);
+          buildSnackBar(context, state.message, isError: true);
+          debugPrint(state.message);
         }
       },
       builder: (context, state) {

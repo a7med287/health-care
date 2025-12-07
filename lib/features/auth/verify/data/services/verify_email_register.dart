@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 
-class VerifyRegister {
+class VerifyService {
   final Dio dio;
 
-  VerifyRegister(this.dio);
+  VerifyService(this.dio);
 
   Future<void> verify({
     required String email,
