@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-<<<<<<< HEAD
-import 'package:health_care/features/auth/forget_password/presentation/views/forget_password_view.dart';
-import 'package:health_care/features/auth/register/presentation/views/register_view.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
-=======
+
 import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
->>>>>>> origin/main
+
 import 'package:health_care/features/splash/presentation/views/widgets/animated_logo.dart';
 import '../../../../core/utils/app_images.dart';
 
@@ -27,11 +23,8 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.pushReplacement(
         context,
-<<<<<<< HEAD
-        MaterialPageRoute(builder: (context) => ForgetPasswordView()),
-=======
+
         MaterialPageRoute(builder: (context) => LoginView()),
->>>>>>> origin/main
       );
     });
   }

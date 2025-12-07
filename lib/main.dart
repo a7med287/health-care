@@ -8,13 +8,7 @@ import 'package:health_care/features/auth/forget_password/data/services/forget_p
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
 import 'generated/l10n.dart';
 
-<<<<<<< HEAD
 void main() {
-=======
-void main()  {
-
-
->>>>>>> origin/main
   runApp(const HealthCare());
 }
 
