@@ -10,10 +10,10 @@ class LoginService {
     required String otp,
   }) async {
     final response = await dio.post(
-      "https://d3.deltauniv.edu.eg/api/Auth/login",
+      "https://d3.deltauniv.edu.eg/api/Auth/email/verify",
       data: {
         "email": email,
-        "password": otp,
+        "Otp": otp,
       },
     );
 
