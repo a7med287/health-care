@@ -52,7 +52,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
         hintText: widget.hintText,
         prefixIcon: Icon(
           Icons.lock_outline,
-          color: isFocused ? AppColors.primaryColor : Colors.grey,
+          color: isFocused ? AppColors.mainColor : Colors.grey,
         ),
         suffixIcon: IconButton(
           onPressed: () {
@@ -68,7 +68,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
         ),
         border: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(color: AppColors.primaryColor),
+        focusedBorder: buildOutlineInputBorder(color: AppColors.mainColor),
       ),
     );
   }

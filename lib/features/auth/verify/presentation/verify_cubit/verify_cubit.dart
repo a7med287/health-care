@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 part 'verify_state.dart';
 
 class VerifyCubit extends Cubit<VerifyState> {
-  final VerifyRegister verifyRegister;
+  final LoginService verifyRegister;
   VerifyCubit(this.verifyRegister) : super(VerifyInitial());
   Future<void> verifyEmail({
     required String email,
@@ -14,7 +14,7 @@ class VerifyCubit extends Cubit<VerifyState> {
     emit(VerifyLoading());
 
     try {
-      await verifyRegister.verify(email: email, otp: otp);
+      await verifyRegister.login(email: email, otp: otp);
 
       emit(VerifySuccess());
     } catch (e) {

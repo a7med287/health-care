@@ -1,19 +1,19 @@
 import 'package:dio/dio.dart';
 
-class VerifyRegister {
+class LoginService {
   final Dio dio;
 
-  VerifyRegister(this.dio);
+  LoginService(this.dio);
 
-  Future<void> verify({
+  Future<void> login({
     required String email,
     required String otp,
   }) async {
     final response = await dio.post(
-      "https://d3.deltauniv.edu.eg/api/Auth/email/verify",
+      "https://d3.deltauniv.edu.eg/api/Auth/login",
       data: {
         "email": email,
-        "Otp": otp,
+        "password": otp,
       },
     );
 
