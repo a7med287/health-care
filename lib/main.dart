@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
+import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'core/utils/app_colors.dart';
 import 'generated/l10n.dart';
 
@@ -40,6 +41,6 @@ class HealthCare extends StatelessWidget {
 
 
 
-        home: SplashView());
+        home: HomeView());
   }
 }

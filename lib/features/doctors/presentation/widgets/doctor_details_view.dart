@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/doctors/presentation/widgets/Booking_Dialog.dart';
-import 'package:intl/intl.dart';
 
 
 
@@ -13,6 +12,7 @@ class DoctorDetailsView extends StatelessWidget {
   final String address;
   final String rating;
   final String image;
+  final String doctorId; // Required: Doctor ID for fetching available slots
 
   const DoctorDetailsView({
     super.key,
@@ -21,6 +21,7 @@ class DoctorDetailsView extends StatelessWidget {
     required this.address,
     required this.rating,
     required this.image,
+    required this.doctorId,
   });
 
   // دالة مساعدة لفتح نافذة الحجز
@@ -33,6 +34,7 @@ class DoctorDetailsView extends StatelessWidget {
           specialty: specialty,
           image: image,
           address: address,
+          doctorId: doctorId,
         );
       },
     );

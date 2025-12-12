@@ -34,6 +34,7 @@ class _DoctorViewBodyState extends State<DoctorViewBody> {
                 name: doc.fullName,
                 email: doc.email,
                 clinicName: doc.clinicName,
+                doctorId: doc.userId, // Use userId as doctorId
               );
             },
           );
