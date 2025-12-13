@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/core/widgets/custom_button.dart';
+import 'package:health_care/features/doctors/presentation/views/available_appointments_view.dart';
+
+import '../../../../core/storage/token_storage.dart';
 
 class DoctorCardItem extends StatelessWidget {
   const DoctorCardItem({super.key, required this.name, required this.email, required this.clinicName});
@@ -44,7 +47,12 @@ class DoctorCardItem extends StatelessWidget {
 
             SizedBox(height: 20,),
 
-            CustomButton(text: "Book",radius: 16,)
+            CustomButton(text: "Book",radius: 16,onTap: () async {
+              final token = await TokenStorage().getToken();
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return AvailableAppointmentsView(doctorId: "", token:  token! );
+              },));
+            },)
           ],
         ),
       ),

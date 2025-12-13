@@ -6,6 +6,7 @@ import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/auth/forget_password/cubit/forget_password_cubit.dart';
 import 'package:health_care/features/auth/forget_password/data/services/forget_password_service.dart';
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
+import 'features/doctors/data/services/appointments_service.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -22,6 +23,19 @@ class HealthCare extends StatelessWidget {
         BlocProvider(
           create: (_) => ForgetPasswordCubit(
             ForgetPasswordService(Dio()),
+          ),
+        ),
+
+
+        RepositoryProvider<AppointmentsService>(
+          create: (_) => AppointmentsService(
+            Dio(
+              BaseOptions(
+                baseUrl: 'https://d3.deltauniv.edu.eg/api',
+                connectTimeout: const Duration(seconds: 20),
+                receiveTimeout: const Duration(seconds: 20),
+              ),
+            ),
           ),
         ),
       ],
