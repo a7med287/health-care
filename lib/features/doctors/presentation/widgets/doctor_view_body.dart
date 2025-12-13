@@ -33,7 +33,7 @@ class _DoctorViewBodyState extends State<DoctorViewBody> {
               return DoctorCardItem(
                 name: doc.fullName,
                 email: doc.email,
-                clinicName: doc.clinicName,
+                clinicName: doc.clinicName, doctorId: doc.userId,
               );
             },
           );

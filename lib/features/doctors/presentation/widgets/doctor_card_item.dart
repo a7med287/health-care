@@ -5,9 +5,9 @@ import 'package:health_care/features/doctors/presentation/views/available_appoin
 import '../../../../core/storage/token_storage.dart';
 
 class DoctorCardItem extends StatelessWidget {
-  const DoctorCardItem({super.key, required this.name, required this.email, required this.clinicName});
+  const DoctorCardItem({super.key, required this.name, required this.email, required this.clinicName, required this.doctorId});
 
-  final String name, email,clinicName;
+  final String name, email,clinicName, doctorId;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -50,7 +50,7 @@ class DoctorCardItem extends StatelessWidget {
             CustomButton(text: "Book",radius: 16,onTap: () async {
               final token = await TokenStorage().getToken();
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return AvailableAppointmentsView(doctorId: "", token:  token! );
+                return AvailableAppointmentsView(doctorId: doctorId, token:  token! );
               },));
             },)
           ],
