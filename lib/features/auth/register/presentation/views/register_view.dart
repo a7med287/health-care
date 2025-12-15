@@ -6,6 +6,8 @@ import 'package:health_care/features/auth/register/cubit/register_cubit.dart';
 import 'package:health_care/features/auth/register/cubit/register_state.dart';
 import 'package:health_care/features/auth/register/data/model/register_request_model.dart';
 import 'package:health_care/features/auth/register/data/services/register_service.dart';
+import 'package:health_care/features/home/presentation/views/home_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({super.key});
@@ -23,13 +25,19 @@ class RegisterView extends StatelessWidget {
         backgroundColor: AppColors.mainColor,
         body: SafeArea(
           child: BlocConsumer<RegisterCubit, RegisterState>(
-            listener: (context, state) {
+            listener: (context, state) async {
               if (state is RegisterSuccess) {
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setString('user_name', nameController.text);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text("✅ تم إنشاء الحساب بنجاح"),
                     backgroundColor: Colors.green,
                   ),
+                );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeView()),
                 );
               }
 
