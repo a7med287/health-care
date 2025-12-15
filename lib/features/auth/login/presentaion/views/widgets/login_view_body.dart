@@ -18,6 +18,7 @@ class LoginViewBody extends StatefulWidget {
 
 class _LoginViewBodyState extends State<LoginViewBody> {
   final _formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode =AutovalidateMode.disabled;
   String email = "";
   String password = "";
 
@@ -28,6 +29,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Form(
           key: _formKey,
+          autovalidateMode: autovalidateMode,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,6 +110,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       email: email,
                       password: password,
                     );
+                  }else{
+                    setState(() {
+                      autovalidateMode =AutovalidateMode.always;
+                    });
                   }
                 },
               ),
