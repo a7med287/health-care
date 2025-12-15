@@ -6,11 +6,15 @@ import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/auth/forget_password/cubit/forget_password_cubit.dart';
 import 'package:health_care/features/auth/forget_password/data/services/forget_password_service.dart';
 import 'package:health_care/features/splash/presentation/views/splash_view.dart';
+import 'core/services/shared_prefrences_singletone.dart';
 import 'features/doctors/data/services/appointments_service.dart';
 import 'generated/l10n.dart';
 
-void main() {
+void main()  async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   runApp(const HealthCare());
+
 }
 
 class HealthCare extends StatelessWidget {

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
+import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:health_care/features/splash/presentation/views/widgets/animated_logo.dart';
 
 class SplashView extends StatefulWidget {
@@ -16,10 +19,11 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
 
+    bool isLogged = Prefs.getBool(isLoggedInKey);
     Future.delayed(Duration(milliseconds: 4000), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginView()),
+        MaterialPageRoute(builder: (context) =>isLogged ?HomeView() : LoginView()  ),
       );
     });
   }

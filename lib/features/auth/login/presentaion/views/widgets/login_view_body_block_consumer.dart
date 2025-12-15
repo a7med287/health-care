@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
 import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -22,6 +24,7 @@ class LoginViewBodyBlockConsumer extends StatelessWidget {
             context,
             MaterialPageRoute(builder: (context) => HomeView()),
           );
+          Prefs.setBool(isLoggedInKey, true);
           final token = await TokenStorage().getToken();
           print(" token is: $token");
         }
