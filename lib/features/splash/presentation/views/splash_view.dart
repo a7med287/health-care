@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
-
 import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
-import 'package:health_care/features/auth/register/presentation/views/register_view.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
-
 import 'package:health_care/features/splash/presentation/views/widgets/animated_logo.dart';
-import '../../../../core/utils/app_images.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -26,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
       Navigator.pushReplacement(
         context,
 
-        MaterialPageRoute(builder: (context) => HomeView()),
+        MaterialPageRoute(builder: (context) => LoginView()),
       );
     });
   }
@@ -40,7 +34,10 @@ class _SplashViewState extends State<SplashView> {
           gradient: LinearGradient(
             begin: AlignmentGeometry.topRight,
             end: AlignmentGeometry.bottomLeft,
-            colors: [AppColors.primaryColor, AppColors.lightPrimaryColor],
+            colors: [
+              AppColors.darkMainColor,
+              AppColors.mainColor
+            ],
           ),
         ),
         child: Center(
@@ -49,7 +46,7 @@ class _SplashViewState extends State<SplashView> {
               const Spacer(),
               const AnimatedLogo(),
               SizedBox(height: 16),
-              SvgPicture.asset(Assets.textLogo),
+              // SvgPicture.asset(Assets.textLogo),
               const Spacer(),
             ],
           ),

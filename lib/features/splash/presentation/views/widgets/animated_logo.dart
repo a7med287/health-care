@@ -23,7 +23,7 @@ class _AnimatedLogoState extends State<AnimatedLogo>
 
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2500),
+      duration: const Duration(milliseconds: 3500),
     );
 
     rotationY = Tween<double>(
