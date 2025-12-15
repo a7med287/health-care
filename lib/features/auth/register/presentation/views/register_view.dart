@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care/core/utils/app_colors.dart';
+import 'package:health_care/core/widgets/custom_button.dart';
 import 'package:health_care/features/auth/register/cubit/register_cubit.dart';
 import 'package:health_care/features/auth/register/cubit/register_state.dart';
 import 'package:health_care/features/auth/register/data/model/register_request_model.dart';
@@ -43,7 +44,7 @@ class _RegisterViewState extends State<RegisterView> {
                 await prefs.setString('user_name', nameController.text);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text("✅ تم إنشاء الحساب بنجاح"),
+                    content: Text(" تم إنشاء الحساب بنجاح"),
                     backgroundColor: Colors.green,
                   ),
                 );
@@ -86,135 +87,118 @@ class _RegisterViewState extends State<RegisterView> {
 
                         const SizedBox(height: 10),
 
-                        const Text(
-                          "Create Account",
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'LibreBaskerville',
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Welcome",
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'LibreBaskerville',
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Sign in to your account",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey,
+                                fontFamily: 'aago',
+                              ),
+                            ),
+                          ],
                         ),
 
+
                         const SizedBox(height: 25),
-                        Container(
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: AlignmentGeometry.topRight,
-                              end: AlignmentGeometry.bottomLeft,
-                              colors: [
-                                AppColors.darkMainColor,
-                                AppColors.mainColor
-                              ],
+                        Column(
+                          children: [
+                            _customField(
+                              controller: nameController,
+                              hint: "Full Name",
+                              icon: Icons.person,
                             ),
-                            borderRadius: BorderRadius.circular(18),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: .1),
-                                blurRadius: 12,
-                                offset: const Offset(0, 6),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              _customField(
-                                controller: nameController,
-                                hint: "Full Name",
-                                icon: Icons.person,
-                              ),
 
-                              _customField(
-                                controller: emailController,
-                                hint: "Email",
-                                icon: Icons.email,
-                              ),
+                            _customField(
+                              controller: emailController,
+                              hint: "Email",
+                              icon: Icons.email,
+                            ),
 
-                              _customField(
-                                controller: phoneController,
-                                hint: "Phone",
-                                icon: Icons.phone,
-                              ),
+                            _customField(
+                              controller: phoneController,
+                              hint: "Phone",
+                              icon: Icons.phone,
+                            ),
 
-                              _customField(
-                                controller: passwordController,
-                                hint: "Password",
-                                icon: Icons.lock,
-                                isPassword: true,
-                              ),
+                            _customField(
+                              controller: passwordController,
+                              hint: "Password",
+                              icon: Icons.lock,
+                              isPassword: true,
+                            ),
 
-                              const SizedBox(height: 20),
+                            const SizedBox(height: 20),
 
-                              // loading
-                              state is RegisterLoading
-                                  ? const CircularProgressIndicator()
-                                  : SizedBox(
-                                      width: double.infinity,
-                                      height: 52,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                         if(_formKey.currentState!.validate()){
-                                           _formKey.currentState!.save();
+                            // loading
+                            state is RegisterLoading
+                                ? const CircularProgressIndicator()
+                                : SizedBox(
+                                    width: double.infinity,
+                                    height: 52,
+                                    child: CustomButton(text: "Sign Up",onTap: (){  if(_formKey.currentState!.validate()){
+                                      _formKey.currentState!.save();
 
-                                           final model = RegisterRequestModel(
-                                             email: emailController.text,
-                                             password: passwordController.text,
-                                             fullName: nameController.text,
-                                             phoneNumber: phoneController.text,
-                                           );
+                                      final model = RegisterRequestModel(
+                                        email: emailController.text,
+                                        password: passwordController.text,
+                                        fullName: nameController.text,
+                                        phoneNumber: phoneController.text,
+                                      );
 
-                                           context.read<RegisterCubit>().register(
-                                             model,
-                                           );
-                                         }else{
-                                           setState(() {
-                                             autovalidateMode =AutovalidateMode.always;
-                                           });
-                                         }
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: AppColors.mainColor,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              12,
-                                            ),
-                                          ),
-                                        ),
-                                        child: const Text(
-                                          "Sign Up",
-                                          style: TextStyle(
-                                            fontSize: 19,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-
-                              const SizedBox(height: 15),
-
-                              // login text
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text("Already have an account? "),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text(
-                                      "Login",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                                      context.read<RegisterCubit>().register(
+                                        model,
+                                      );
+                                    }else{
+                                      setState(() {
+                                        autovalidateMode =AutovalidateMode.always;
+                                      });
+                                    }},)
                                   ),
-                                ],
-                              ),
-                            ],
+
+                            const SizedBox(height: 15),
+
+                            // login text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Already have an account? ",
+                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                              color: AppColors.mainColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
                           ),
+                        ),
+                      ],
+                    ),
+                          ],
                         ),
                       ],
                     ),
@@ -248,17 +232,17 @@ class _RegisterViewState extends State<RegisterView> {
         controller: controller,
         obscureText: isPassword,
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontWeight: FontWeight.bold
           ),
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: TextStyle(
-            color: Colors.white
+            color: Colors.grey
           ),
           prefixIcon: Icon(
             icon,
-            color:  Colors.white ,
+            color:  AppColors.mainColor ,
           ),
           border: buildOutlineInputBorder(),
           enabledBorder: buildOutlineInputBorder(),
@@ -268,7 +252,7 @@ class _RegisterViewState extends State<RegisterView> {
       ),
     );
   }
-  OutlineInputBorder buildOutlineInputBorder({Color color = Colors.white}) {
+  OutlineInputBorder buildOutlineInputBorder({Color color = Colors.grey}) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(40),
       borderSide: BorderSide(color: color),
