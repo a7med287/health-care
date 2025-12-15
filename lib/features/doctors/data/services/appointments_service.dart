@@ -12,7 +12,7 @@ class AppointmentsService {
     required String token,
   }) async {
     final response = await dio.get(
-      '/Appointments/available-slots/C846CA85-CB11-473F-BF91-420414DEDE7D',
+      '/Appointments/available-slots/$doctorId',
       options: Options(
         headers: {
           'Authorization': 'Bearer $token',
