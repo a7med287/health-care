@@ -7,9 +7,9 @@ import 'package:health_care/features/auth/register/cubit/register_cubit.dart';
 import 'package:health_care/features/auth/register/cubit/register_state.dart';
 import 'package:health_care/features/auth/register/data/model/register_request_model.dart';
 import 'package:health_care/features/auth/register/data/services/register_service.dart';
+import 'package:health_care/features/auth/verify/presentation/views/verify_view.dart';
 import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class RegisterView extends StatefulWidget {
   RegisterView({super.key});
@@ -28,7 +28,7 @@ class _RegisterViewState extends State<RegisterView> {
   final phoneController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  AutovalidateMode autovalidateMode =AutovalidateMode.disabled;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,10 @@ class _RegisterViewState extends State<RegisterView> {
                 );
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeView()),
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        VerifyView(email: emailController.text),
+                  ),
                 );
               }
 
@@ -106,7 +109,7 @@ class _RegisterViewState extends State<RegisterView> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             const Text(
-                              "Sign in to your account",
+                              "Sign Up to your new account",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
@@ -115,7 +118,6 @@ class _RegisterViewState extends State<RegisterView> {
                             ),
                           ],
                         ),
-
 
                         const SizedBox(height: 25),
                         Column(
@@ -153,51 +155,60 @@ class _RegisterViewState extends State<RegisterView> {
                                 : SizedBox(
                                     width: double.infinity,
                                     height: 52,
-                                    child: CustomButton(text: "Sign Up",onTap: (){  if(_formKey.currentState!.validate()){
-                                      _formKey.currentState!.save();
+                                    child: CustomButton(
+                                      text: "Sign Up",
+                                      onTap: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          _formKey.currentState!.save();
 
-                                      final model = RegisterRequestModel(
-                                        email: emailController.text,
-                                        password: passwordController.text,
-                                        fullName: nameController.text,
-                                        phoneNumber: phoneController.text,
-                                      );
+                                          final model = RegisterRequestModel(
+                                            email: emailController.text,
+                                            password: passwordController.text,
+                                            fullName: nameController.text,
+                                            phoneNumber: phoneController.text,
+                                          );
 
-                                      context.read<RegisterCubit>().register(
-                                        model,
-                                      );
-                                    }else{
-                                      setState(() {
-                                        autovalidateMode =AutovalidateMode.always;
-                                      });
-                                    }},)
+                                          context
+                                              .read<RegisterCubit>()
+                                              .register(model);
+                                        } else {
+                                          setState(() {
+                                            autovalidateMode =
+                                                AutovalidateMode.always;
+                                          });
+                                        }
+                                      },
+                                    ),
                                   ),
 
                             const SizedBox(height: 15),
 
                             // login text
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already have an account? ",
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              color: AppColors.mainColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Already have an account? ",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    "Login",
+                                    style: TextStyle(
+                                      color: AppColors.mainColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
                           ],
                         ),
                       ],
@@ -222,7 +233,6 @@ class _RegisterViewState extends State<RegisterView> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextFormField(
-
         validator: (value) {
           if (value!.isEmpty) {
             return "This is Required";
@@ -231,27 +241,20 @@ class _RegisterViewState extends State<RegisterView> {
         },
         controller: controller,
         obscureText: isPassword,
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold
-          ),
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: TextStyle(
-            color: Colors.grey
-          ),
-          prefixIcon: Icon(
-            icon,
-            color:  AppColors.mainColor ,
-          ),
+          hintStyle: TextStyle(color: Colors.grey),
+          prefixIcon: Icon(icon, color: AppColors.mainColor),
           border: buildOutlineInputBorder(),
           enabledBorder: buildOutlineInputBorder(),
-          focusedBorder: buildOutlineInputBorder(color:AppColors.mainColor),
+          focusedBorder: buildOutlineInputBorder(color: AppColors.mainColor),
           contentPadding: const EdgeInsets.symmetric(vertical: 13),
         ),
       ),
     );
   }
+
   OutlineInputBorder buildOutlineInputBorder({Color color = Colors.grey}) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(40),

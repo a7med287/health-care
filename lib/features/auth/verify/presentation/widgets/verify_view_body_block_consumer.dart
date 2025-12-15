@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:health_care/core/helpers/build_snak_bar.dart';
 import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
 import 'package:health_care/features/auth/verify/presentation/widgets/verify_view_body.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../verify_cubit/verify_cubit.dart';
@@ -21,10 +20,10 @@ class VerifyViewBodyBlockConsumer extends StatelessWidget {
           buildSnackBar(context, "Verified Successful, Login");
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => HomeView()),
+            MaterialPageRoute(builder: (context) => LoginView()),
           );
         } else if (state is VerifyFailure) {
-          buildSnackBar(context, state.message, isError: true);
+          buildSnackBar(context, "OTP is not correct", isError: true);
           debugPrint(state.message);
         }
         if (state is ResendOtpSuccess) {
@@ -37,7 +36,7 @@ class VerifyViewBodyBlockConsumer extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is VerifyLoading || state is ResendOtpLoading,
-          child: VerifyViewBody(email: email,),
+          child: SafeArea(child: VerifyViewBody(email: email,)),
         );
       },
     );

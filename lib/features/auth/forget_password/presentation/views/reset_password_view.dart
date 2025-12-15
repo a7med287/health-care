@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
-
+import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
 import '../../cubit/forget_password_cubit.dart';
 import '../../cubit/forget_password_state.dart';
 
@@ -19,7 +18,7 @@ class ResetPasswordView extends StatelessWidget {
           listener: (context, state) {
             if (state is ForgetPasswordResetSuccess) {
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => HomeView()));
+                  context, MaterialPageRoute(builder: (_) => LoginView()));
             }
           },
           builder: (context, state) {
