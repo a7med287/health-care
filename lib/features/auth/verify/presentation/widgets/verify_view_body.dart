@@ -32,7 +32,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
         child: Column(
           children: [
             const SizedBox(height: 30),
-            const LockImageWidget(icon: Icons.attach_email_rounded),
+            const LockImageWidget(icon: Icons.verified_user_rounded),
             const SizedBox(height: 50),
             const Text(
               "Verify Your Account",
@@ -53,8 +53,8 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 50),
-        
-            // 🔹 Pin code input
+
+
             PinDigitsWidget(
               valueChangedCode: (value) {
                 otp = value;
@@ -63,7 +63,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
         
             const SizedBox(height: 16),
         
-            // 🔹 Verify button
+
             CustomButton(
               text: "Verify Code",
               onTap: () {

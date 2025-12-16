@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinDigitsWidget extends StatelessWidget {
-  const PinDigitsWidget({super.key, required this.valueChangedCode});
+  const PinDigitsWidget({super.key, required this.valueChangedCode, this.controller});
 
   final ValueChanged valueChangedCode;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
+      controller: controller,
       validator: (value) {
         if (value!.isEmpty) {
           return "value required";

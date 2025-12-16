@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_care/core/helpers/build_snak_bar.dart';
+import 'package:health_care/core/widgets/custom_button.dart';
+import 'package:health_care/features/auth/verify/presentation/widgets/pin_digits_widget.dart';
 
+import '../../../verify/presentation/widgets/lock_image_widget.dart';
 import '../../cubit/forget_password_cubit.dart';
 import '../../cubit/forget_password_state.dart';
 import 'reset_password_view.dart';
@@ -13,7 +17,6 @@ class VerifyOtpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff29BBCC),
       body: SafeArea(
         child: BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
           listener: (context, state) {
@@ -22,70 +25,64 @@ class VerifyOtpView extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (_) => ResetPasswordView()),
               );
+
+              buildSnackBar(
+                context,
+                "Email verified Successful, reset your password",
+              );
+            }else{
+              buildSnackBar(context, "OTP is not Correct",isError:  true);
             }
+
           },
           builder: (context, state) {
-            return Center(
-              child: Container(
-                padding: const EdgeInsets.all(24),
-                margin: const EdgeInsets.symmetric(horizontal: 24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(18),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 10,
-                    )
-                  ],
-                ),
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
                   children: [
+                    const SizedBox(height: 32),
+                    const LockImageWidget(icon: Icons.verified_user_rounded),
+                    const SizedBox(height: 40),
                     const Text(
-                      "Verify OTP",
-                      style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 20),
-
-                    TextField(
-                      controller: otpController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: "Enter OTP",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
+                      "Verify your email",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontFamily: "LibreBaskerville",
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "We have sent you the OTP, enter it now to continue",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "aago",
+                        color: Colors.grey,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 32),
 
-                    const SizedBox(height: 20),
+                    PinDigitsWidget(
+                      controller: otpController,
+                      valueChangedCode: (value) {
+                        otpController.text = value;
+                      },
+                    ),
 
+                    SizedBox(height: 16,),
                     state is ForgetPasswordLoading
                         ? const CircularProgressIndicator()
-                        : SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xff29BBCC),
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 14),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                              ),
-                              onPressed: () {
-                                context
-                                    .read<ForgetPasswordCubit>()
-                                    .verifyOtp(otpController.text.trim());
-                              },
-                              child: const Text(
-                                "Verify",
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ),
-                          ),
+                        : CustomButton(text: "Verify", onTap: (){
+                        context
+                          .read<ForgetPasswordCubit>()
+                          .verifyOtp(
+                        otpController.text.trim(),
+                      );
+                    },),
+
+
                   ],
                 ),
               ),
