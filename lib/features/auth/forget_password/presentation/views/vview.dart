@@ -30,8 +30,9 @@ class VerifyOtpView extends StatelessWidget {
                 context,
                 "Email verified Successful, reset your password",
               );
-            }else{
-              buildSnackBar(context, "OTP is not Correct",isError:  true);
+            }
+            if(state is ForgetPasswordOtpFailure){
+              buildSnackBar(context, "OTP is Not correct",isError: true);
             }
 
           },

@@ -33,7 +33,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       );
       emit(ForgetPasswordOtpVerified());
     } catch (e) {
-      emit(ForgetPasswordFailure(e.toString()));
+      emit(ForgetPasswordOtpFailure());
     }
   }
 
@@ -48,7 +48,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       );
       emit(ForgetPasswordResetSuccess());
     } catch (e) {
-      emit(ForgetPasswordFailure(e.toString()));
+      emit(ForgetPasswordResetFailure());
     }
   }
 }

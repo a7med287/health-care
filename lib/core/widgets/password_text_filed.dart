@@ -4,10 +4,11 @@ import '../../generated/l10n.dart';
 import '../utils/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({super.key, this.onSaved,  this.hintText = "Enter Your Password"});
+  const PasswordTextFormField({super.key, this.onSaved,  this.hintText = "Enter Your Password", this.controller});
 
   final void Function(String?)? onSaved;
   final String hintText;
+  final TextEditingController? controller;
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
 }
@@ -38,6 +39,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       focusNode: focusNode,
       validator: (value) {
         if (value!.isEmpty) {
