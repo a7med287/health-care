@@ -19,6 +19,7 @@ class HeadOfHomePage extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: AppColors.mainColor, width: 1),
+
           ),
           child: const Icon(Icons.notifications_none,
               color: AppColors.mainColor),

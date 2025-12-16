@@ -25,7 +25,10 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const HeadOfHomePage(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: const HeadOfHomePage(),
+                ),
 
                 const SizedBox(height: _sectionSpacing),
 
