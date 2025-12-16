@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 
+import 'build_pop_menue.dart';
+
 class HeadOfHomePage extends StatelessWidget {
   const HeadOfHomePage({
     super.key,
@@ -12,18 +14,7 @@ class HeadOfHomePage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: AppColors.mainColor, width: 1),
-
-          ),
-          child: const Icon(Icons.notifications_none,
-              color: AppColors.mainColor),
-        ),
+        buildPopupMenu(context),
 
          SvgPicture.asset('assets/images/insoveLogo.svg',
         width: 80,

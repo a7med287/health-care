@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
+import 'package:health_care/core/widgets/custom_button.dart';
+import 'package:health_care/features/auth/login/presentaion/views/login_view.dart';
 import 'package:health_care/features/profile/data/models/local_appointment_model.dart';
 import 'package:health_care/features/profile/data/services/local_appointment_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,8 +19,7 @@ class _ProfileViewState extends State<ProfileView> {
   String userName = '';
   List<LocalAppointmentModel> appointments = [];
 
-  final LocalAppointmentService service =
-      LocalAppointmentService();
+  final LocalAppointmentService service = LocalAppointmentService();
 
   @override
   void initState() {
@@ -49,11 +52,7 @@ class _ProfileViewState extends State<ProfileView> {
               const CircleAvatar(
                 radius: 45,
                 backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  size: 50,
-                  color: AppColors.mainColor,
-                ),
+                child: Icon(Icons.person, size: 50, color: AppColors.mainColor),
               ),
 
               const SizedBox(height: 15),
@@ -94,8 +93,7 @@ class _ProfileViewState extends State<ProfileView> {
                         ? const Center(
                             child: Text(
                               "No appointments yet",
-                              style: TextStyle(
-                                  color: Colors.grey),
+                              style: TextStyle(color: Colors.grey),
                             ),
                           )
                         : Column(
@@ -106,6 +104,17 @@ class _ProfileViewState extends State<ProfileView> {
                   ],
                 ),
               ),
+
+              // CustomButton(
+              //   text: "Logout",
+              //   onTap: () {
+              //     Prefs.setBool(isLoggedInKey, false);
+              //     Navigator.pushReplacement(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => LoginView()),
+              //     );
+              //   },
+              // ),
             ],
           ),
         ),
@@ -113,23 +122,18 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 
-  Widget _appointmentCard(
-      LocalAppointmentModel appointment) {
+  Widget _appointmentCard(LocalAppointmentModel appointment) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(12),
-        border:
-            Border.all(color: AppColors.mainColor, width: .6),
+        border: Border.all(color: AppColors.mainColor, width: .6),
       ),
       child: Row(
         children: [
-          const Icon(
-            Icons.calendar_month,
-            color: AppColors.mainColor,
-          ),
+          const Icon(Icons.calendar_month, color: AppColors.mainColor),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -137,16 +141,12 @@ class _ProfileViewState extends State<ProfileView> {
               children: [
                 Text(
                   appointment.doctorName,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   "${appointment.date} • ${appointment.time}",
-                  style: TextStyle(
-                    color: Colors.grey.shade700,
-                    fontSize: 13,
-                  ),
+                  style: TextStyle(color: Colors.grey.shade700, fontSize: 13),
                 ),
               ],
             ),
