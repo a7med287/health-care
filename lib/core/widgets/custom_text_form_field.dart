@@ -9,13 +9,14 @@ class CustomTextFormField extends StatefulWidget {
     this.onSaved,
     required this.iconData,
     required this.textInputType,
-    required this.hintText,
+    required this.hintText, this.textController,
   });
 
   final void Function(String?)? onSaved;
   final IconData iconData;
   final TextInputType textInputType;
   final String hintText;
+  final TextEditingController? textController;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -45,6 +46,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.textController,
       focusNode: focusNode,
       validator: (value) {
         if (value!.isEmpty) {

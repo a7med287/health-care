@@ -8,8 +8,9 @@ import 'package:health_care/features/auth/register/cubit/register_state.dart';
 import 'package:health_care/features/auth/register/data/model/register_request_model.dart';
 import 'package:health_care/features/auth/register/data/services/register_service.dart';
 import 'package:health_care/features/auth/verify/presentation/views/verify_view.dart';
-import 'package:health_care/features/home/presentation/views/home_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../../core/helpers/build_snak_bar.dart';
 
 class RegisterView extends StatefulWidget {
   RegisterView({super.key});
@@ -42,12 +43,7 @@ class _RegisterViewState extends State<RegisterView> {
               if (state is RegisterSuccess) {
                 final prefs = await SharedPreferences.getInstance();
                 await prefs.setString('user_name', nameController.text);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text(" تم إنشاء الحساب بنجاح"),
-                    backgroundColor: Colors.green,
-                  ),
-                );
+                buildSnackBar(context, "Registered Successful, Verify Your Email");
                 Navigator.push(
                   context,
                   MaterialPageRoute(

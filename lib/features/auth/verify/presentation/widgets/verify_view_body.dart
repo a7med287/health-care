@@ -28,70 +28,72 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        children: [
-          const SizedBox(height: 30),
-          const LockImageWidget(icon: Icons.attach_email_rounded),
-          const SizedBox(height: 50),
-          const Text(
-            "Verify Your Account",
-            style: TextStyle(
-              fontSize: 24,
-              fontFamily: "LibreBaskerville",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 16),
-          const Text(
-            "We've sent a verification code. Please enter the code to verify your account",
-            style: TextStyle(
-              fontSize: 16,
-              fontFamily: "aago",
-              color: Colors.grey,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 50),
-
-          // 🔹 Pin code input
-          PinDigitsWidget(
-            valueChangedCode: (value) {
-              otp = value;
-            },
-          ),
-
-          const SizedBox(height: 16),
-
-          // 🔹 Verify button
-          CustomButton(
-            text: "Verify Code",
-            onTap: () {
-              context.read<VerifyCubit>().verifyEmail(
-                email: widget.email,
-                otp: otp,
-              );
-            },
-            radius: 16,
-          ),
-          const SizedBox(height: 16),
-
-          // 🔹 Resend OTP Section
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Didn't receive any code?",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: "aago",
-                  color: Colors.grey,
-                ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 30),
+            const LockImageWidget(icon: Icons.attach_email_rounded),
+            const SizedBox(height: 50),
+            const Text(
+              "Verify Your Account",
+              style: TextStyle(
+                fontSize: 24,
+                fontFamily: "LibreBaskerville",
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(width: 6),
-              ResendOtpSection(email: widget.email),
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "We've sent a verification code. Please enter the code to verify your account",
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: "aago",
+                color: Colors.grey,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 50),
+        
+            // 🔹 Pin code input
+            PinDigitsWidget(
+              valueChangedCode: (value) {
+                otp = value;
+              },
+            ),
+        
+            const SizedBox(height: 16),
+        
+            // 🔹 Verify button
+            CustomButton(
+              text: "Verify Code",
+              onTap: () {
+                context.read<VerifyCubit>().verifyEmail(
+                  email: widget.email,
+                  otp: otp,
+                );
+              },
+              radius: 16,
+            ),
+            const SizedBox(height: 16),
+        
+            // 🔹 Resend OTP Section
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Didn't receive any code?",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "aago",
+                    color: Colors.grey,
+                  ),
+                ),
+                const SizedBox(width: 6),
+                ResendOtpSection(email: widget.email),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
