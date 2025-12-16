@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
 import 'package:health_care/core/widgets/custom_button.dart';
 import 'package:health_care/features/doctors/presentation/views/available_appointments_view.dart';
 import '../../../../core/storage/token_storage.dart';
@@ -68,7 +70,8 @@ class DoctorCardItem extends StatelessWidget {
               text: "Book",
               radius: 16,
               onTap: () async {
-                final token = await TokenStorage().getToken();
+                final token = Prefs.getString(tokenKey);
+
 
                 if (token == null) return;
 

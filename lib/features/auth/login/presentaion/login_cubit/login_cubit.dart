@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
 
 import '../../../../../core/storage/token_storage.dart';
 import '../../data/services/login_services.dart';
@@ -24,11 +26,13 @@ class LoginCubit extends Cubit<LoginState> {
       if (statusCode == 200 || statusCode == 201) {
         final auth = data['auth'];
 
-        await tokenStorage.saveToken(
-          token: auth['token'],
-          refreshToken: auth['refreshtoken'],
-          expiry: auth['tokenexpiry'],
-        );
+        // await tokenStorage.saveToken(
+        //   token: auth['token'],
+        //   refreshToken: auth['refreshtoken'],
+        //   expiry: auth['tokenexpiry'],
+        // );
+
+        Prefs.setString(tokenKey, auth['token']);
 
         emit(LoginSuccess());
       } else if (statusCode == 202) {

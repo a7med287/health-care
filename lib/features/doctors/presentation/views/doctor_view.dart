@@ -20,21 +20,22 @@ class _DoctorViewState extends State<DoctorView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DoctorCubit(DoctorRepoImpl())..getDoctors(clinicId: widget.clinicId),
+      create: (context) =>
+          DoctorCubit(DoctorRepoImpl())..getDoctors(clinicId: widget.clinicId),
       child: Scaffold(
         appBar: AppBar(
           title: Center(
-            child: Text("Doctors",
+            child: Text(
+              "Doctors",
               style: TextStyle(
-                  color: AppColors.mainColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24
+                color: AppColors.mainColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
               ),
             ),
           ),
         ),
         body: DoctorViewBody(),
-
       ),
     );
   }

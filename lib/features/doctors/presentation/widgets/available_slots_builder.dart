@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/core/services/shared_prefrences_singletone.dart';
 import 'package:health_care/core/utils/app_colors.dart';
 import 'package:health_care/features/profile/data/models/local_appointment_model.dart';
 import 'package:health_care/features/profile/data/services/local_appointment_service.dart';
 
 import '../../../../core/helpers/build_snak_bar.dart';
-import '../../../../core/storage/token_storage.dart';
 import '../cubits/available_slots_cubit/available_slot_cubit.dart';
 
 class AvailableAppointmentsViewBodyBlockConsumer extends StatelessWidget {
@@ -92,7 +93,7 @@ class AvailableAppointmentsViewBodyBlockConsumer extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
-                      final token = await TokenStorage().getToken();
+                      final token = Prefs.getString(tokenKey);
 
                       context.read<AvailableSlotCubit>().bookAppointment(
                             slotId: slot.slotId,
