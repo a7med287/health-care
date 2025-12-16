@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(Duration(milliseconds: 4000), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) =>!isLogged ?HomeView() : LoginView()  ),
+        MaterialPageRoute(builder: (context) =>isLogged ?HomeView() : LoginView()  ),
       );
     });
   }
