@@ -58,7 +58,7 @@ class RecentPostsSliver extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "READ MORE BLOGS",
+                  "Your health is always our priority",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
@@ -91,7 +91,7 @@ class _BlogCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -136,7 +136,7 @@ class _BlogCard extends StatelessWidget {
                 Text(
                   post.date,
                   style: TextStyle(
-                    color: Colors.black.withOpacity(0.45),
+                    color: Colors.black.withValues(alpha: 0.45),
                     fontSize: 10,
                   ),
                 ),
