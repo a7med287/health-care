@@ -17,7 +17,7 @@ class DoctorsListView extends StatelessWidget {
         itemBuilder: (context, index) {
           final doctor = demoDoctors[index];
           return SizedBox(
-            width: 350,
+            width: 300,
             child: DoctorCard(
               doctor: doctor,
               onBookAppointment: () {
