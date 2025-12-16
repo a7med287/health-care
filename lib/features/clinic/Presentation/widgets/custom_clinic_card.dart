@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'build_iamge.dart';
 
 class ClinicCard extends StatelessWidget {
   final String imageUrl;
@@ -28,15 +29,7 @@ class ClinicCard extends StatelessWidget {
             // image
             Expanded(
               flex: 1,
-              child: imageUrl.isNotEmpty
-                  ? Image.network(
-                      imageUrl,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      errorBuilder: (c, e, s) =>
-                          Image.asset("assets/images/default.png", fit: BoxFit.cover),
-                    )
-                  : Image.asset("assets/images/default.png", fit: BoxFit.cover),
+              child: buildImage(imageUrl)
             ),
             // details
             Expanded(
@@ -63,3 +56,4 @@ class ClinicCard extends StatelessWidget {
     );
   }
 }
+
